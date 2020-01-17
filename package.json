@@ -6,17 +6,45 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
+    "start": "webpack-dev-server --env=development",
+    "build": "webpack --env=production",
+    "serve": "pm2 serve dist/ 3000 --spa --no-daemon --name=client",
+    "analyze-bundle-size": "webpack --profile --json > bundle-stats.json && webpack-bundle-analyzer --port=4200 ./bundle-stats.json",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
     "@babel/plugin-proposal-class-properties": "^7.8.0",
     "@babel/preset-env": "^7.8.2",
     "@babel/preset-react": "^7.8.0",
+    "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "dotenv-webpack": "^1.7.0",
     "eslint": "^6.8.0",
     "eslint-plugin-jest": "^23.6.0",
-    "eslint-plugin-react": "^7.17.0"
+    "eslint-plugin-react": "^7.17.0",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "pm2": "^4.2.1",
+    "postcss-loader": "^3.0.0",
+    "resolve-url-loader": "^3.1.1",
+    "sass-loader": "^8.0.1",
+    "webpack": "^4.41.5",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
   }
 }

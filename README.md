@@ -12,10 +12,24 @@ It contains the following development tooling:
 
 - [Jared Jewitt](https://github.com/jared-jewitt)
 
+## Getting Started
+
+1. Rename the `.env.example` file to `.env` and add paste your desired env variables there. If you don't need env
+ variables, just delete the file.
+
+2. Start the app locally by running `npm install` (if you haven't already), then the command `npm run start` in the
+ root project directory.
+ 
+3. You should be see the app by visiting `http://localhost:3000`.
+
 ## Commands
 
 | Command                     | Description                                                                      |
 |-----------------------------|----------------------------------------------------------------------------------|
+| npm run start               | Runs the application locally with hot reloading on port 3000                     |
+| npm run build               | Builds the application                                                           |
+| npm run serve               | Runs the built application on port 3000. Requires ***npm run build*** first      |
+| npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                              |
 | npm run lint                | Identifies linting warnings/errors                                               |
 | npm run lint:fix            | Fixes linting errors                                                             |
 
