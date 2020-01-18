@@ -6,6 +6,7 @@ import { AuthProvider } from '@/providers';
 import * as serviceWorker from './serviceWorker';
 
 import Routes from '@/routes/routes';
+import '@/styles/index.scss';
 
 const App = () => (
   <AuthProvider>
