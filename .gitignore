@@ -5,6 +5,7 @@
 
 # Development
 *.env
+bundle-stats.json
 /dist
 /coverage
 /node_modules
