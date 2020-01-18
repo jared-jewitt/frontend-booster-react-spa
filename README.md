@@ -30,6 +30,10 @@ It contains the following development tooling:
 | npm run build               | Builds the application                                                           |
 | npm run serve               | Runs the built application on port 3000. Requires ***npm run build*** first      |
 | npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                              |
+| npm run test:bundle-size    | Displays a bundle size report in the console. Requires ***npm run build*** first |
+| npm run test:jest           | Runs all jest tests                                                              |
+| npm run test:jest:update    | Updates jest snapshot files                                                      |
+| npm run test:jest:coverage  | Runs all jest tests and displays a coverage report in the console                |
 | npm run lint                | Identifies linting warnings/errors                                               |
 | npm run lint:fix            | Fixes linting errors                                                             |
 

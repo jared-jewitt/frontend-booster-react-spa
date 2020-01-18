@@ -6,6 +6,7 @@
 # Development
 *.env
 /dist
+/coverage
 /node_modules
 
 # IDEs and editors
