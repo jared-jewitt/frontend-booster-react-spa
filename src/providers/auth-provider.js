@@ -4,17 +4,14 @@
  * Provider for managing the authentication state of the user.
  */
 
-import React, { Fragment, useState, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { AUTH_STATE } from '@/constants';
 
-export const AuthProviderContext = createContext();
-
-const AuthProvider = ({ children }) => {
-  const baseState = {
-    isAuthenticated: false,
-  };
+export const AuthContext = createContext();
+export const AuthProvider = ({ children }) => {
+  const baseState = { isAuthenticated: false };
   const dehydratedState = localStorage.getItem(AUTH_STATE) || null;
   const initialState = dehydratedState ? JSON.parse(dehydratedState) : baseState;
 
@@ -38,16 +35,12 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthProviderContext.Provider value={contextValue}>
-      <Fragment>
-        {children}
-      </Fragment>
-    </AuthProviderContext.Provider>
+    <AuthContext.Provider value={contextValue}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export { AuthProvider };
