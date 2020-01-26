@@ -10,7 +10,7 @@ It contains the following development tooling:
 
 #### Developers:
 
-- [Jared Jewitt](https://github.com/jared-jewitt)
+- [Jared Jewitt](https://jared-jewitt.github.io/)
 
 ## Getting Started
 
