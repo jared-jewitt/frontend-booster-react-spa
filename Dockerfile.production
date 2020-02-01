@@ -1,0 +1,12 @@
+# Build environment
+FROM node:latest
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+CMD ["npm", "run", "build"]
+
+# Production environment
+FROM nginx
+EXPOSE 80
+COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
