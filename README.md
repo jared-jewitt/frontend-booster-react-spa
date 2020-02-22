@@ -9,7 +9,7 @@ It contains the following development tooling:
 - [Webpack](https://nodemon.io/)
 - [Jest](https://jestjs.io/)
 
-#### Requirements (If not using Docker):
+#### Requirements:
 
 - [Node](https://nodejs.org/en/)
 
@@ -19,7 +19,7 @@ It contains the following development tooling:
 
 ## Getting Started
 
-1. Rename the `.env.example` file to `.env` and add paste your desired env variables there. If you don't need env
+1. Rename the `.env.example` file to `.env` and paste your desired env variables there. If you don't need env
  variables, just delete the file.
 
 2. Start the app locally by running `npm install` (if you haven't already), then the command `npm run start` in the
@@ -40,12 +40,6 @@ It contains the following development tooling:
 | npm run lint                | Identifies linting warnings/errors                                               |
 | npm run lint:fix            | Fixes linting errors                                                             |
 | npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                              |
-
-The project can, instead, be run with Docker.
-```
-$ docker build . -t portable-react
-$ docker run -d -p 3000:3000 portable-react
-```
 
 ## Deployment
 
