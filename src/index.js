@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
-import { AuthProvider } from '@/providers';
 import * as serviceWorker from './service-worker';
+import '@/styles/index.scss';
 
 import Routes from '@/routes/routes';
-import '@/styles/index.scss';
+import { AuthProvider } from '@/providers';
 
 const App = () => (
   <AuthProvider>
-    <BrowserRouter>
+    <HashRouter basename="/">
       <Routes />
-    </BrowserRouter>
+    </HashRouter>
   </AuthProvider>
 );
 

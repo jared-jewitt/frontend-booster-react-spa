@@ -11,7 +11,12 @@ import { AUTH_STATE } from '@/constants';
 
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
-  const baseState = { isAuthenticated: false };
+  const baseState = {
+    isAuthenticated: false,
+    user: {
+      name: 'Foo',
+    },
+  };
   const dehydratedState = localStorage.getItem(AUTH_STATE) || null;
   const initialState = dehydratedState ? JSON.parse(dehydratedState) : baseState;
 

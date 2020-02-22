@@ -5,7 +5,7 @@ import { Routes } from '@/constants';
 
 const NotFoundPage = () => (
   <Fragment>
-    <p>Not found.</p>
+    <p>404 - Not found</p>
     <Link to={Routes.HOME}>Go to Home</Link>
   </Fragment>
 );

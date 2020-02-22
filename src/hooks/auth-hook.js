@@ -10,7 +10,6 @@ import { AuthContext } from '@/providers';
 
 export const useAuth = () => {
   const { updateAuthState, clearAuthState, authState } = useContext(AuthContext);
-
   return {
     updateAuthState: payload => updateAuthState(payload),
     clearAuthState: () => clearAuthState(),
