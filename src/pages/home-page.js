@@ -6,7 +6,7 @@ const HomePage = () => {
   const { clearAuthState } = useAuth();
   return (
     <div className="home">
-      <h1 className="home__title">Home - CI/CD is awesome :)</h1>
+      <h1 className="home__title">Home</h1>
       <button
         className="home__logout-btn"
         onClick={clearAuthState}
