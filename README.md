@@ -43,9 +43,10 @@ It contains the following development tooling:
 
 ## Deployment
 
-The word "portable" from the repository name derives from the idea of [Infrastructure as Code](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-infrastructure-as-code).
-Thus, this application is intended to be used as a [Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Deployment 
-logic will sit in a separate "parent" repository.
+The word "portable" from the repository name derives from the idea of infrastructure modularization.
+Thus, this application is intended to be treated as a "child" repository. Deployment logic will sit in a separate
+"parent" repository. Parent repositories are suffixed with the word "wrapper". 
+Click [here](https://github.com/jared-jewitt/fullstack-node-wrapper) for an example.
 
 ## License
 
