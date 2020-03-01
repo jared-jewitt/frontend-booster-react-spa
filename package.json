@@ -7,7 +7,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jared-jewitt/portable-react-boilerplate.git"
+    "url": "https://github.com/portable-boilerplates/portable-react-boilerplate.git"
   },
   "main": "src/index.js",
   "scripts": {
