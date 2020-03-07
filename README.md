@@ -19,21 +19,21 @@ It contains the following development tooling:
 
 ## Getting Started
 
-1. Rename the `.env.example` file to `.env` and paste your desired env variables there. If you don't need env 
+1. Rename [.env-example](.env-example) file to `.env` and paste your desired env variables there. If you don't need env 
 variables, just delete the file.
 
 2. Run the app via either of the options below. After that, visit your app at `http://localhost:3000`.
 
 ##### Without Docker
 ```
-$ npm install
-$ npm run start
+npm install
+npm run start
 ```
  
 ##### With Docker
 ```
-$ docker build -f Dockerfile.development -t portable-react .
-$ docker run -d -p 3000:3000 portable-react
+docker build -f Dockerfile.development -t portable-react .
+docker run -d -p 3000:3000 portable-react
 ```
 
 ## Commands
@@ -42,7 +42,7 @@ $ docker run -d -p 3000:3000 portable-react
 |-----------------------------|------------------------------------------------------------------------------|
 | npm run start               | Runs the application locally with hot reloading on port 3000                 |
 | npm run build               | Builds the application                                                       |
-| npm run serve               | Runs the built application on port 3000. Requires ***npm run build*** first  |
+| npm run serve               | Runs the built application on port 3001. Requires ***npm run build*** first  |
 | npm run test                | Runs all jest tests                                                          |
 | npm run test:update         | Updates jest snapshot files                                                  |
 | npm run test:coverage       | Runs all jest tests and displays a coverage report in the console            |
