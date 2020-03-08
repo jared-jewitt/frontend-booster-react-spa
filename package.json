@@ -1,13 +1,13 @@
 {
-  "name": "portable-react-boilerplate",
+  "name": "portable-frontend-boilerplate-react",
   "version": "1.0.0",
-  "description": "Boilerplate for React projects",
+  "description": "Boilerplate for creating React applications",
   "author": "Jared Jewitt <jaredjewitt@gmail.com> (https://jared-jewitt.github.io/)",
   "license": "ISC",
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/portable-boilerplates/portable-react-boilerplate.git"
+    "url": "https://github.com/portable-boilerplates/portable-frontend-boilerplate-react.git"
   },
   "main": "src/index.js",
   "scripts": {
