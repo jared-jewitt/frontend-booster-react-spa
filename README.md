@@ -1,6 +1,10 @@
-# Portable React Boilerplate
+# Portable Frontend Boilerplate - React
 
-This codebase is a JavaScript boilerplate for creating [React](https://reactjs.org/) applications. 
+This codebase is a boilerplate for creating React applications. It is intended to be used as a module for 
+my [Launch pads](https://github.com/launch-pads). However, that being said, it can still be used completely on its own.
+
+In order for a portable boilerplate to work with a Launch pad, it must abide by the following guidelines:
+> <https://github.com/portable-boilerplates/guidelines>
 
 It contains the following development tooling:
 
@@ -49,13 +53,6 @@ docker run -d -p 3000:3000 portable-react
 | npm run lint                | Identifies linting warnings/errors                                           |
 | npm run lint:fix            | Fixes linting errors                                                         |
 | npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                          |
-
-## Deployment
-
-The word "portable" from the repository name derives from the idea of infrastructure modularization.
-Thus, this application is intended to be treated as a "child" repository. Deployment logic will sit in a separate
-"parent" repository, which pulls in the child. That being said, to deploy your app, pick an appropriate launchpad from 
-[my launchpads](https://github.com/launch-pads) and follow the deployment instructions there.
 
 ## License
 
