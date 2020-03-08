@@ -6,7 +6,7 @@ my [Launch pads](https://github.com/launch-pads). However, that being said, it c
 In order for a portable boilerplate to work with a Launch pad, it must abide by the following guidelines:
 > <https://github.com/portable-boilerplates/guidelines>
 
-It contains the following development tooling:
+This boilerplate contains the following development tooling:
 
 - [ESLint](https://eslint.org/)
 - [Babel](https://babeljs.io/)
