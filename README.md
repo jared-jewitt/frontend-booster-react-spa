@@ -36,8 +36,8 @@ npm run start
  
 ##### With Docker
 ```
-docker build -f Dockerfile.development -t portable-react .
-docker run -d -p 3000:3000 portable-react
+docker build --file=Dockerfile.development --tag=portable-react:dev .
+docker run -d --publish=3000:3000 --name=portable_react --volume=${PWD}:/usr/src/app --volume=/usr/src/app/node_modules portable-react:dev
 ```
 
 ## Commands
