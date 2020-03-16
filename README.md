@@ -36,8 +36,7 @@ npm run start
  
 ##### With Docker
 ```
-docker build --file=Dockerfile.development --tag=portable-react:dev .
-docker run -d --publish=3000:3000 --name=portable_react --volume=${PWD}:/usr/src/app --volume=/usr/src/app/node_modules portable-react:dev
+docker-compose --file=docker-compose.development.yml up -d
 ```
 
 ## Commands
@@ -46,7 +45,7 @@ docker run -d --publish=3000:3000 --name=portable_react --volume=${PWD}:/usr/src
 |-----------------------------|------------------------------------------------------------------------------|
 | npm run start               | Runs the application locally with hot reloading on port 3000                 |
 | npm run build               | Builds the application                                                       |
-| npm run serve               | Runs the built application on port 3001. Requires ***npm run build*** first  |
+| npm run serve               | Runs the built application on port 3000. Requires ***npm run build*** first  |
 | npm run test                | Runs all jest tests                                                          |
 | npm run test:update         | Updates jest snapshot files                                                  |
 | npm run test:coverage       | Runs all jest tests and displays a coverage report in the console            |
