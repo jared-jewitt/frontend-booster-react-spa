@@ -1,0 +1,22 @@
+version: "3.7"
+
+####################### Services Definition #######################
+services:
+
+  client-prod:
+    container_name: client_prod
+    image: client:prod
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+    networks:
+      - default
+
+####################### Networks Definition #######################
+networks:
+  default:
+    driver: bridge

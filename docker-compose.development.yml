@@ -1,0 +1,25 @@
+version: "3.7"
+
+####################### Services Definition #######################
+services:
+
+  client-dev:
+    container_name: client_dev
+    image: client:dev
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    volumes:
+      - "./:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+    networks:
+      - default
+
+####################### Networks Definition #######################
+networks:
+  default:
+    driver: bridge

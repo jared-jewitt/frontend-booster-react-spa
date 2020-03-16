@@ -13,7 +13,7 @@
   "scripts": {
     "start": "webpack-dev-server --env=development",
     "build": "webpack --env=production",
-    "serve": "serve -p 3001 -s dist",
+    "serve": "serve -p 3000 -s dist",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
     "test:coverage": "jest --coverage",
