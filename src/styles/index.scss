@@ -1,4 +1,5 @@
 // For more information: https://sass-lang.com/documentation
 
-@import './generic/fonts';
-@import './generic/elements';
+@import 'utils/fonts';
+@import 'utils/variables';
+@import 'utils/mixins';

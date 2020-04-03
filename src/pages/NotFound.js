@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 import { Routes } from '@/constants';
 
-const NotFoundPage = () => (
+const NotFound = () => (
   <Fragment>
     <p>404 - Not found</p>
     <Link to={Routes.HOME}>Go to Home</Link>
   </Fragment>
 );
 
-export default NotFoundPage;
+export default NotFound;

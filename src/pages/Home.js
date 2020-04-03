@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAuth } from '@/hooks';
 
-const HomePage = () => {
+const Home = () => {
   const { clearAuthState } = useAuth();
   return (
     <div className="home">
@@ -17,4 +17,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;

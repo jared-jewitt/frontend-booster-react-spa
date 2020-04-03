@@ -1,5 +1,5 @@
 /**
- * @file routes.js
+ * @file index.js
  *
  * Manages browser router navigation within the application.
  */
@@ -10,9 +10,9 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { Routes } from '@/constants';
 import { useAuth } from '@/hooks';
 
-const LoginPage = React.lazy(() => import('@/pages/login-page'));
-const HomePage = React.lazy(() => import('@/pages/home-page'));
-const NotFoundPage = React.lazy(() => import('@/pages/not-found-page'));
+const Login = React.lazy(() => import('@/pages/Login'));
+const Home = React.lazy(() => import('@/pages/Home'));
+const NotFound = React.lazy(() => import('@/pages/NotFound'));
 
 /**
  * Route helper which renders the given component or redirects based on the authentication state.
@@ -47,9 +47,9 @@ const PublicGuard = ({ component: Component, ...rest }) => {
 export default () => (
   <Suspense fallback={<div>Loading...</div>}>
     <Switch>
-      <PublicGuard exact path={Routes.LOGIN} component={LoginPage} />
-      <PrivateGuard exact path={Routes.HOME} component={HomePage} />
-      <Route path={Routes.WILDCARD} component={NotFoundPage} />
+      <PublicGuard exact path={Routes.LOGIN} component={Login} />
+      <PrivateGuard exact path={Routes.HOME} component={Home} />
+      <Route path={Routes.WILDCARD} component={NotFound} />
     </Switch>
   </Suspense>
 );

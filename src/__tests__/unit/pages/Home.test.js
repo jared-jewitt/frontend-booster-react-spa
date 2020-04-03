@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import HomePage from '@/pages/home-page';
+import Home from '@/pages/Home';
 
 jest.mock('@/hooks/auth-hook', () => ({
   useAuth: () => ({
@@ -11,10 +11,10 @@ jest.mock('@/hooks/auth-hook', () => ({
   }),
 }));
 
-describe('HomePage - unit', () => {
+describe('Home - unit', () => {
   
   it('renders correctly', () => {
-    const wrapper = shallow(<HomePage />);
+    const wrapper = shallow(<Home />);
     expect(wrapper).toMatchSnapshot();
   });
   

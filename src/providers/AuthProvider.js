@@ -1,5 +1,5 @@
 /**
- * @file auth-provider.js
+ * @file AuthProvider.js
  *
  * Provider for managing the authentication state of the user.
  */
