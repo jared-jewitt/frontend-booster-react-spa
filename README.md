@@ -43,9 +43,9 @@ docker-compose --file=docker-compose.development.yml up -d
 
 | Command                     | Description                                                                  |
 |-----------------------------|------------------------------------------------------------------------------|
-| npm run start               | Runs the application locally with hot reloading on port 3000                 |
 | npm run build               | Builds the application                                                       |
-| npm run serve               | Runs the built application on port 3000. Requires ***npm run build*** first  |
+| npm run start               | Runs the application locally with hot reloading on port 3000                 |
+| npm run serve               | Builds the application then runs the application on port 3000                |
 | npm run test                | Runs all jest tests                                                          |
 | npm run test:update         | Updates jest snapshot files                                                  |
 | npm run test:coverage       | Runs all jest tests and displays a coverage report in the console            |

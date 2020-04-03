@@ -11,9 +11,9 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --env=development",
     "build": "webpack --env=production",
-    "serve": "serve -p 3000 -s dist",
+    "start": "webpack-dev-server --env=development",
+    "serve": "npm run build && serve -p 3000 -s dist",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
     "test:coverage": "jest --coverage",
