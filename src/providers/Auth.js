@@ -6,14 +6,11 @@
 
 import React, { useState, createContext } from 'react';
 
-const getAuthState = () => localStorage.getItem('authState');
-const setAuthState = (data) => localStorage.setItem('authState', JSON.stringify(data));
-const removeAuthState = () => localStorage.removeItem('authState');
+import { getLocalStorage, setLocalStorage, removeLocalStorage } from '@/utils';
 
 export const AuthContext = createContext();
-
 export default ({ children }) => {
-  const dehydratedState = getAuthState() || null;
+  const dehydratedState = getLocalStorage('auth') || null;
   const initialState = {
     isAuthenticated: false,
     user: { name: 'Foo' },
@@ -22,12 +19,12 @@ export default ({ children }) => {
 
   const updateAuthState = (payload) => {
     const data = { ...payload, isAuthenticated: true };
-    setAuthState(data);
+    setLocalStorage('auth', data);
     setState(data);
   };
 
   const clearAuthState = () => {
-    removeAuthState();
+    removeLocalStorage('auth');
     setState(initialState);
   };
 
