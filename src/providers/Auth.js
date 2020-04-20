@@ -19,7 +19,7 @@ export default ({ children }) => {
 
   const updateAuthState = (payload) => {
     const data = { ...payload, isAuthenticated: true };
-    setLocalStorage('auth', data);
+    setLocalStorage('auth', JSON.stringify(data));
     setState(data);
   };
 

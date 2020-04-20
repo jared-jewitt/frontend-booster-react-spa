@@ -1,5 +1,5 @@
 export const getLocalStorage = (key) => localStorage.getItem(key);
 
-export const setLocalStorage = (key, data) => localStorage.setItem(key, JSON.stringify(data));
+export const setLocalStorage = (key, data) => localStorage.setItem(key, data);
 
 export const removeLocalStorage = (key) => localStorage.removeItem(key);
