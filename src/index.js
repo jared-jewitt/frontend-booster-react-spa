@@ -6,7 +6,7 @@ import * as serviceWorker from './service-worker';
 import '@/styles/index.scss';
 
 import Routes from '@/routes';
-import { AuthProvider } from '@/providers';
+import AuthProvider from '@/providers';
 
 const App = () => (
   <AuthProvider>

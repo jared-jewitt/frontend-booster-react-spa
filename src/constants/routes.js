@@ -1,4 +1,4 @@
-export const Routes = Object.freeze({
+export default Object.freeze({
   HOME: '/',
   LOGIN: '/login',
   WILDCARD: '*',

@@ -36,7 +36,7 @@ npm run start
  
 ##### With Docker
 ```
-docker-compose --file=docker-compose.development.yml up -d
+docker-compose up -d
 ```
 
 ## Commands

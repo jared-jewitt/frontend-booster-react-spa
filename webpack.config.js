@@ -1,6 +1,5 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-const merge = require('webpack-merge');
 const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -188,6 +187,6 @@ module.exports = (env) => {
   };
 
   return env === 'development'
-    ? merge(baseConfig, devConfig)
-    : merge(baseConfig, prodConfig);
+    ? { ...baseConfig, ...devConfig }
+    : { ...baseConfig, ...prodConfig };
 };

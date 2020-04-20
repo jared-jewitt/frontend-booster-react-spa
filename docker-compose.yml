@@ -3,12 +3,13 @@ version: "3.7"
 ####################### Services Definition #######################
 services:
 
-  client-dev:
-    container_name: client_dev
-    image: client:dev
+  client:
+    container_name: client
+    image: client:latest
     build:
       context: .
-      dockerfile: Dockerfile.development
+      dockerfile: Dockerfile
+    command: ["npm", "run", "start"]
     volumes:
       - "./:/usr/src/app"
       - "/usr/src/app/node_modules"

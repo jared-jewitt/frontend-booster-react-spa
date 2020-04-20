@@ -3,11 +3,11 @@ import { shallow } from 'enzyme';
 
 import Home from '@/pages/Home';
 
-jest.mock('@/hooks/auth-hook', () => ({
+jest.mock('@/hooks', () => ({
   useAuth: () => ({
     updateAuthState: jest.fn(),
     clearAuthState: jest.fn(),
-    authState: { isAuthenticated: true },
+    state: { isAuthenticated: true },
   }),
 }));
 

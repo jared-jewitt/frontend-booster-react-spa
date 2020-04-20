@@ -15,14 +15,13 @@ const Home = React.lazy(() => import('@/pages/Home'));
 const NotFound = React.lazy(() => import('@/pages/NotFound'));
 
 /**
- * Route helper which renders the given component or redirects based on the authentication state.
- * Specialized to handle private routes.
+ * Route helper specialized to handle private routes.
  */
 const PrivateGuard = ({ component: Component, ...rest }) => {
-  const { authState } = useAuth();
+  const { state } = useAuth();
   return (
     <Route {...rest} render={(props) => (
-      authState.isAuthenticated
+      state.isAuthenticated
         ? <Component {...props} />
         : <Redirect to={Routes.LOGIN} />
     )} />
@@ -30,14 +29,13 @@ const PrivateGuard = ({ component: Component, ...rest }) => {
 };
 
 /**
- * Route helper which renders the given component or redirects based on the authentication state.
- * Specialized to handle public routes.
+ * Route helper specialized to handle public routes.
  */
 const PublicGuard = ({ component: Component, ...rest }) => {
-  const { authState } = useAuth();
+  const { state } = useAuth();
   return (
     <Route {...rest} render={(props) => (
-      authState.isAuthenticated
+      state.isAuthenticated
         ? <Redirect to={Routes.HOME} />
         : <Component {...props} />
     )} />

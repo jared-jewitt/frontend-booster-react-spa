@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAuth } from '@/hooks';
 
-const Login = () => {
+export default () => {
   const { updateAuthState } = useAuth();
   return (
     <div className="login">
@@ -16,5 +16,3 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;

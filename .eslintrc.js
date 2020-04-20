@@ -5,6 +5,11 @@ module.exports = {
     browser: true,
     jest: true,
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   plugins: ['jest', 'react'],
   extends: ['eslint:recommended', 'plugin:jest/recommended', 'plugin:react/recommended'],
   rules: {
@@ -12,7 +17,7 @@ module.exports = {
     'quotes': ['warn', 'single'],
     'no-unused-vars': 'warn',
     'no-case-declarations': 'off',
-    'react/prop-types': 'warn',
+    'react/prop-types': 'off',
     'react/no-deprecated': 'warn',
     'react/display-name': 'off',
   },

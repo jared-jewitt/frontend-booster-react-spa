@@ -1,2 +1,1 @@
-export * from './routes';
-export * from './local-storage';
+export { default as Routes } from './routes';

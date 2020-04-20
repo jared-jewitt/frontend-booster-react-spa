@@ -1,1 +1,1 @@
-export * from './auth-hook';
+export { default as useAuth } from './auth';
