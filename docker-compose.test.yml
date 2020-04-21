@@ -1,0 +1,19 @@
+version: "3.7"
+
+####################### Services Definition #######################
+services:
+
+  client-test:
+    container_name: client_test
+    image: client:test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["npm", "run", "test"]
+    networks:
+      - default
+
+####################### Networks Definition #######################
+networks:
+  default:
+    driver: bridge

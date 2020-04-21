@@ -3,9 +3,9 @@ version: "3.7"
 ####################### Services Definition #######################
 services:
 
-  client:
-    container_name: client
-    image: client:latest
+  client-dev:
+    container_name: client_dev
+    image: client:dev
     build:
       context: .
       dockerfile: Dockerfile
