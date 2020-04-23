@@ -29,18 +29,22 @@ variables, just delete the file
 2. Run the app via either of the options below. After that, visit your app at `http://localhost:3000`
 
 ##### Without Docker
+
 ```
 npm install
 npm run start
 ```
  
 ##### With Docker
+
 ```
 docker-compose up
 ```
 
 ## Commands
-> Note: To use these commands with Docker, run them as such: `docker exec client npm run ...`
+
+> Note: To use these commands with Docker, run them as such: `docker exec client npm run ...`. Make sure the container
+>is already running.
 
 | Command                     | Description                                                        |
 |-----------------------------|--------------------------------------------------------------------|
