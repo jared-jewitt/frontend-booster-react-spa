@@ -24,9 +24,9 @@ This boilerplate contains the following development tooling:
 ## Getting Started
 
 1. Rename [.env-example](.env-example) file to `.env` and paste your desired env variables there. If you don't need env 
-variables, just delete the file.
+variables, just delete the file
 
-2. Run the app via either of the options below. After that, visit your app at `http://localhost:3000`.
+2. Run the app via either of the options below. After that, visit your app at `http://localhost:3000`
 
 ##### Without Docker
 ```
@@ -36,22 +36,23 @@ npm run start
  
 ##### With Docker
 ```
-docker-compose up -d
+docker-compose up
 ```
 
 ## Commands
+> Note: To use these commands with Docker, run them as such: `docker exec client npm run ...`
 
-| Command                     | Description                                                                  |
-|-----------------------------|------------------------------------------------------------------------------|
-| npm run build               | Builds the application                                                       |
-| npm run start               | Runs the application locally with hot reloading on port 3000                 |
-| npm run serve               | Builds the application then runs the application on port 3000                |
-| npm run test                | Runs all jest tests                                                          |
-| npm run test:update         | Updates jest snapshot files                                                  |
-| npm run test:coverage       | Runs all jest tests and displays a coverage report in the console            |
-| npm run lint                | Identifies linting warnings/errors                                           |
-| npm run lint:fix            | Fixes linting errors                                                         |
-| npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                          |
+| Command                     | Description                                                        |
+|-----------------------------|--------------------------------------------------------------------|
+| npm run build               | Builds the application                                             |
+| npm run start               | Runs the application locally with hot reloading on port 3000       |
+| npm run serve               | Builds the application then runs the application on port 3001      |
+| npm run test                | Runs all jest tests                                                |
+| npm run test:update         | Updates jest snapshot files                                        |
+| npm run test:coverage       | Runs all jest tests and displays a coverage report in the console  |
+| npm run lint                | Identifies linting warnings/errors                                 |
+| npm run lint:fix            | Fixes linting errors                                               |
+| npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                |
 
 ## License
 
