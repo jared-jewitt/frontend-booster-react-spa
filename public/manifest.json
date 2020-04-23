@@ -1,6 +1,6 @@
 {
-  "short_name": "Mobile App Name",
-  "name": "Mobile App Description",
+  "short_name": "React App",
+  "name": "Boilerplate for a React app",
   "icons": [
     {
       "src": "favicon.ico",
