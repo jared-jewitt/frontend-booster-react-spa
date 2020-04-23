@@ -16,5 +16,4 @@ RUN npm run build
 
 RUN npm install --quiet -g serve
 
-EXPOSE $PORT
 CMD serve -p $PORT -s dist
