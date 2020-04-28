@@ -4,14 +4,11 @@ version: "3.7"
 services:
   client:
     container_name: client
-    image: client:dev
+    image: client:test
     build:
       context: .
       dockerfile: Dockerfile
-      target: "development"
-    volumes:
-      - "./:/usr/src/app"
-      - "/usr/src/app/node_modules"
+      target: "test"
     ports:
       - 3000:3000
     environment:

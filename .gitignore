@@ -4,7 +4,7 @@
 .LSOverride
 
 # Development
-*.env
+.env
 bundle-stats.json
 /dist
 /coverage

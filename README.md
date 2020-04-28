@@ -23,10 +23,13 @@ This boilerplate contains the following development tooling:
 
 ## Getting Started
 
-1. Rename [.env-example](.env-example) file to `.env` and paste your desired env variables there. If you don't need env 
-variables, just delete the file
+> Run the app via either option below, then visit your client at `http://localhost:3000`
 
-2. Run the app via either of the options below. After that, visit your app at `http://localhost:3000`
+##### With Docker
+ 
+ ```
+ docker-compose up
+ ```
 
 ##### Without Docker
 
@@ -34,17 +37,8 @@ variables, just delete the file
 npm install
 npm run start
 ```
- 
-##### With Docker
-
-```
-docker-compose up
-```
 
 ## Commands
-
-> Note: To use these commands with Docker, run them like such: `docker exec -it client npm run ...` (make sure the
-> container is already running).
 
 | Command                     | Description                                                        |
 |-----------------------------|--------------------------------------------------------------------|
@@ -57,6 +51,9 @@ docker-compose up
 | npm run lint                | Identifies linting warnings/errors                                 |
 | npm run lint:fix            | Fixes linting errors                                               |
 | npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                |
+
+> Note: To use these commands with Docker, run them like such: `docker-compose exec -it client npm run ...` (make sure
+> the container is already running).
 
 ## License
 

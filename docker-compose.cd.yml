@@ -1,0 +1,10 @@
+version: "3.7"
+
+####################### Services Definition #######################
+services:
+  client:
+    image: client:prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: "production"
