@@ -23,7 +23,7 @@ This boilerplate contains the following development tooling:
 
 ## Getting Started
 
-> Run the app via either option below, then visit your client at `http://localhost:3000`
+Run the app via either option below, then visit your client at `http://localhost:3000`
 
 ##### With Docker
  
@@ -40,6 +40,9 @@ npm run start
 
 ## Commands
 
+> Note: To use these commands with Docker, run them like such: \
+> `docker-compose exec -it client npm run ...` (make sure the container is running).
+
 | Command                     | Description                                                        |
 |-----------------------------|--------------------------------------------------------------------|
 | npm run build               | Builds the application                                             |
@@ -51,9 +54,6 @@ npm run start
 | npm run lint                | Identifies linting warnings/errors                                 |
 | npm run lint:fix            | Fixes linting errors                                               |
 | npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                |
-
-> Note: To use these commands with Docker, run them like such: \
-> `docker-compose exec -it client npm run ...` (make sure the container is running).
 
 ## License
 
