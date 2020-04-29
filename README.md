@@ -52,8 +52,8 @@ npm run start
 | npm run lint:fix            | Fixes linting errors                                               |
 | npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                |
 
-> Note: To use these commands with Docker, run them like such: `docker-compose exec -it client npm run ...` (make sure
-> the container is already running).
+> Note: To use these commands with Docker, run them like such: \
+> `docker-compose exec -it client npm run ...` (make sure the container is running).
 
 ## License
 
