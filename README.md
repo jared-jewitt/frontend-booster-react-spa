@@ -4,7 +4,7 @@ This codebase is a boilerplate for creating React applications. It is intended t
 my [Launch pads](https://github.com/launch-pads). However, that being said, it can still be used completely on its own.
 
 In order for a portable boilerplate to work with a Launch pad, it must abide by the following guidelines:
-> <https://github.com/portable-boilerplates/guidelines>
+> <https://github.com/portable-boilerplates/portable-boilerplate-guidelines>
 
 This boilerplate contains the following development tooling:
 
