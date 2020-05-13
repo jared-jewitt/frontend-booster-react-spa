@@ -7,6 +7,10 @@ export default () => {
   return (
     <div className="home">
       <h1 className="home__title">Home</h1>
+      <p>
+        Try navigating to <code>/login</code><br />
+        It won&apos;t work due to public routing constraints.
+      </p>
       <button
         className="home__logout-btn"
         onClick={clearAuthState}

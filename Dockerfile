@@ -14,7 +14,7 @@ RUN npm run build
 CMD ["npm", "run", "test"]
 
 # Production
-FROM builder AS production
-RUN npm run build
-RUN npm install --quiet -g serve
-CMD serve -p $PORT -s dist
+FROM nginx:1.18-alpine AS production
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
