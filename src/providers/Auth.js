@@ -6,15 +6,19 @@
 
 import React, { useState, createContext } from 'react';
 
-import { getLocalStorage, setLocalStorage, removeLocalStorage } from '@/utils';
+const getLocalStorage = (key) => localStorage.getItem(key);
+const setLocalStorage = (key, data) => localStorage.setItem(key, data);
+const removeLocalStorage = (key) => localStorage.removeItem(key);
 
-export const AuthContext = createContext();
-export default ({ children }) => {
+const initialState = {
+  isAuthenticated: false,
+  user: { name: 'Foo' },
+};
+
+export const AuthContext = createContext(initialState);
+
+export const AuthProvider = ({ children }) => {
   const dehydratedState = getLocalStorage('auth') || null;
-  const initialState = {
-    isAuthenticated: false,
-    user: { name: 'Foo' },
-  };
   const [state, setState] = useState(dehydratedState ? JSON.parse(dehydratedState) : initialState);
 
   const updateAuthState = (payload) => {

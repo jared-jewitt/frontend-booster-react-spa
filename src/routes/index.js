@@ -4,15 +4,15 @@
  * Manages browser router navigation within the application.
  */
 
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 import { Routes } from '@/constants';
 import { useAuth } from '@/hooks';
 
-const Login = React.lazy(() => import('@/pages/Login'));
-const Home = React.lazy(() => import('@/pages/Home'));
-const NotFound = React.lazy(() => import('@/pages/NotFound'));
+const Login = lazy(() => import('@/pages/Login'));
+const Home = lazy(() => import('@/pages/Home'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
 
 /**
  * Route helper specialized to handle private routes.
