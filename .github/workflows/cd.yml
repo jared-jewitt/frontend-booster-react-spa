@@ -1,0 +1,42 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - development
+      - staging
+      - master
+
+jobs:
+  cd:
+    name: CD
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build + Deploy
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.GCR_USERNAME }}
+          password: ${{ secrets.GCR_PASSWORD }}
+          registry: ${{ secrets.GCR_REGISTRY }}
+          repository: ${{ secrets.GCR_REPOSITORY }}
+          dockerfile: Dockerfile
+          target: cd
+          push: true
+          tag_with_ref: true
+          tag_with_sha: true
+
+      - name: Apply
+        working-directory: .infrastructure
+        run: |
+          echo "::set-env name=BRANCH::${GITHUB_REF#refs/heads/}"
+          echo "::set-env name=TF_WORKSPACE::${BRANCH}"
+          terraform init \
+            -input=false \
+            -backend-config="token=${{ secrets.TERRAFORM_CLOUD_API_TOKEN }}" \
+            -backend-config="organization=${{ secrets.TERRAFORM_CLOUD_ORGANIZATION }}"
+          terraform apply \
+            -input=false \
+            -auto=approve

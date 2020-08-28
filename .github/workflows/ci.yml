@@ -1,0 +1,33 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches:
+      - development
+      - staging
+      - master
+
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build + Test
+        run: |
+          docker build --tag=client:ci --target=ci .
+          docker run client:ci
+
+      - name: Plan
+        working-directory: .infrastructure
+        run: |
+          echo "::set-env name=BRANCH::${GITHUB_REF#refs/heads/}"
+          echo "::set-env name=TF_WORKSPACE::${BRANCH}"
+          terraform init \
+            -input=false \
+            -backend-config="token=${{ secrets.TERRAFORM_CLOUD_API_TOKEN }}" \
+            -backend-config="organization=${{ secrets.TERRAFORM_CLOUD_ORGANIZATION }}"
+          terraform plan \
+            -input=false
