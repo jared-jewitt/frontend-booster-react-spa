@@ -8,6 +8,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: local
     volumes:
       - "./:/usr/src/app"
       - "/usr/src/app/node_modules"
