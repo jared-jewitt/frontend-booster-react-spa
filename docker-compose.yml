@@ -2,13 +2,12 @@ version: "3.7"
 
 ####################### Services Definition #######################
 services:
-  client-development:
-    image: client:development
+  client:
+    image: client:local
     container_name: client
     build:
       context: .
       dockerfile: Dockerfile
-      target: "development"
     volumes:
       - "./:/usr/src/app"
       - "/usr/src/app/node_modules"

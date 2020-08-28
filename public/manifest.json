@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Boilerplate for creating React applications",
+  "short_name": "React Boilerplate",
+  "name": "Boilerplate for a React client",
   "icons": [
     {
       "src": "favicon.ico",

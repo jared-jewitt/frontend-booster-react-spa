@@ -1,21 +1,21 @@
-# Portable Frontend Boilerplate - React
+# Client Booster - React
 
-This codebase is a boilerplate for creating React applications. It is intended to be used as a module for 
-my [Launch pads](https://github.com/launch-pads). However, that being said, it can still be used completely on its own.
+This codebase is a boilerplate for a React client. It is intended to be used as a
+[Booster](https://github.com/jared-jewitt/booster-guidelines) for my [Launchpad](https://github.com/jared-jewitt/launch-pad). 
+However, that being said, it can still be used completely on its own - CI/CD and infrastructure come pre-configured.
 
-In order for a portable boilerplate to work with a Launch pad, it must abide by the following guidelines:
-> <https://github.com/portable-boilerplates/portable-boilerplate-guidelines>
+#### Requirements:
 
-This boilerplate contains the following development tooling:
+- [Docker](https://www.docker.com/) (Optional)
+- [Node](https://nodejs.org/en/) (Optional if Docker is used)
+- [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (Windows users only)
+
+#### Features:
 
 - [ESLint](https://eslint.org/)
 - [Babel](https://babeljs.io/)
-- [Webpack](https://nodemon.io/)
+- [Webpack](https://webpack.js.org/)
 - [Jest](https://jestjs.io/)
-
-#### Requirements (If not using Docker):
-
-- [Node](https://nodejs.org/en/)
 
 #### Developers:
 
@@ -23,38 +23,50 @@ This boilerplate contains the following development tooling:
 
 ## Getting Started
 
-Run the app via either option below, then visit your client at `http://localhost:3000`
+Run the client via either option below, then visit it at `http://localhost:3000`
 
-##### With Docker
+**_Docker:_**
  
  ```
- docker-compose up
+ make run
  ```
 
-##### Without Docker
+**_NPM:_**
 
 ```
 npm install
-npm run start
+npm start
 ```
 
 ## Commands
 
-> Note: To use these commands with Docker, run them like such: \
-> `docker-compose exec client npm run ...` (make sure the container is running).
+**_Docker:_**
 
-| Command                     | Description                                                        |
-|-----------------------------|--------------------------------------------------------------------|
-| npm run build               | Builds the application                                             |
-| npm run start               | Runs the application locally with hot reloading on port 3000       |
-| npm run serve               | Builds the application then runs the application on port 3001      |
-| npm run test                | Runs all jest tests                                                |
-| npm run test:update         | Updates jest snapshot files                                        |
-| npm run test:coverage       | Runs all jest tests and displays a coverage report in the console  |
-| npm run lint                | Identifies linting warnings/errors                                 |
-| npm run lint:fix            | Fixes linting errors                                               |
-| npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200                |
+| Command        | Description                                                         |
+|----------------|---------------------------------------------------------------------|
+| make run       | Launches the client                                                 |
+| make close     | Closes the client                                                   |
+| make purge     | Purges the client containers, images, networks, volumes             |
+| make workspace | Shells into the client to run one-off commands. e.g. `npm run test` |
+
+**_NPM:_**
+
+| Command                     | Description                                                       |
+|-----------------------------|-------------------------------------------------------------------|
+| npm run build               | Builds the client                                                 |
+| npm run start               | Runs the client locally with hot reloading on port 3000           |
+| npm run serve               | Runs the built client on port 4000                                |
+| npm run test                | Runs all jest tests                                               |
+| npm run test:update         | Updates jest snapshot files                                       |
+| npm run test:coverage       | Runs all jest tests and displays a coverage report in the console |
+| npm run lint                | Identifies linting warnings/errors                                |
+| npm run lint:fix            | Fixes linting errors                                              |
+| npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200               |
+
+## Deployment
+
+[Instructions here](DEPLOYMENT.md).
 
 ## License
 
-Code released under the [Apache License, Version 2.0](LICENSE).
+Code released under the [MIT License](LICENSE).

@@ -33,7 +33,7 @@ module.exports = (env) => {
     // Folders.
     src: path.join(__dirname, 'src'),
     public: path.join(__dirname, 'public'),
-    dist: path.join(__dirname, 'dist'),
+    build: path.join(__dirname, 'build'),
     node_modules: path.join(__dirname, 'node_modules'),
 
     // Files.
@@ -47,7 +47,7 @@ module.exports = (env) => {
       main: PATHS.entry,
     },
     output: {
-      path: PATHS.dist,
+      path: PATHS.build,
       publicPath: ASSET_PATH,
       filename: BUILD_FILE_NAMES.jsFileName,
       chunkFilename: BUILD_FILE_NAMES.jsChunkFileName,
@@ -135,7 +135,7 @@ module.exports = (env) => {
       new CopyPlugin([
         {
           from: PATHS.public,
-          to: PATHS.dist,
+          to: PATHS.build,
           ignore: ['*.html'],
         },
       ]),
@@ -146,7 +146,7 @@ module.exports = (env) => {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-      contentBase: PATHS.dist,
+      contentBase: PATHS.build,
       host: HOST,
       port: PORT,
       compress: true,
