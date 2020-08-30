@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack --env=production",
     "start": "webpack-dev-server --env=development",
-    "serve": "serve -p 4000 -s dist",
+    "serve": "serve -p 4000 -s build",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
     "test:coverage": "jest --coverage",

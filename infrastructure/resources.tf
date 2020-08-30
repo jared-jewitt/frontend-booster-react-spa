@@ -1,15 +1,15 @@
 data "docker_registry_image" "image" {
-  name = "${var.registry}/${var.repository}:${var.image_tag}"
+  name = "gcr.io/${var.project_id}/client:${var.image_tag}"
 }
 
 resource "google_cloud_run_service" "client" {
-  name = var.cloud_run_service_name
+  name = var.service_name
   location = var.region
 
   template {
     spec {
       containers {
-        image = data.docker_registry_image.image.sha256_digest
+        image = "gcr.io/${var.project_id}/client@${data.docker_registry_image.image.sha256_digest}"
         dynamic "env" {
           for_each = var.container_environment_variables
           content {

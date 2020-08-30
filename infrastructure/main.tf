@@ -1,15 +1,11 @@
 terraform {
   required_providers {
-    github = {
-      source = "hashicorp/github"
-      version = "~> 2.9.2"
-    }
     google = {
       source = "hashicorp/google"
       version = "~> 3.34.0"
     }
     docker = {
-      source = "hashicorp/docker"
+      source = "terraform-providers/docker"
       version = "~> 2.7.2"
     }
   }
@@ -27,9 +23,10 @@ provider "google" {
 }
 
 provider "docker" {
+  host = "https://gcr.io"
   registry_auth {
+    address = "gcr.io"
     username = "_json_key"
     password = base64decode(var.service_account_key)
-    address = var.registry
   }
 }
