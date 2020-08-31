@@ -10,13 +10,6 @@ resource "google_cloud_run_service" "client" {
     spec {
       containers {
         image = "gcr.io/${var.project_id}/client@${data.docker_registry_image.image.sha256_digest}"
-        dynamic "env" {
-          for_each = var.container_environment_variables
-          content {
-            name = env.key
-            value = env.value
-          }
-        }
       }
     }
   }

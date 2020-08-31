@@ -8,35 +8,81 @@ on:
       - master
 
 jobs:
-  ci:
-    name: CI
+  test:
+    name: Test
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup
-        run: |
-          TERRAFORM_CLOUD_API_TOKEN="${{ secrets.TERRAFORM_CLOUD_API_TOKEN }}"
-          TERRAFORM_CLOUD_ORGANIZATION="${{ secrets.TERRAFORM_CLOUD_ORGANIZATION }}"
-          TF_WORKSPACE="${{ github.event.pull_request.base.ref }}"
-          TF_IN_AUTOMATION="true"
-          echo ::set-env name=TERRAFORM_CLOUD_API_TOKEN::$TERRAFORM_CLOUD_API_TOKEN
-          echo ::set-env name=TERRAFORM_CLOUD_ORGANIZATION::$TERRAFORM_CLOUD_ORGANIZATION
-          echo ::set-env name=TF_WORKSPACE::$TF_WORKSPACE
-          echo ::set-env name=TF_IN_AUTOMATION::$TF_IN_AUTOMATION
-
-      - name: Test
+      - name: Run tests
         run: |
           docker build --target=ci --tag=client:ci .
           docker run client:ci
 
-      - name: Plan
+  plan:
+    name: Plan
+    runs-on: ubuntu-latest
+    defaults:
+      run:
         working-directory: infrastructure
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set enviornment variables
         run: |
-          terraform init \
-            -input=false \
-            -backend-config="token="${TERRAFORM_CLOUD_API_TOKEN}"" \
-            -backend-config="organization="${TERRAFORM_CLOUD_ORGANIZATION}""
-          terraform plan \
-            -input=false
+          echo ::set-env name=TF_WORKSPACE::${{ github.event.pull_request.base.ref }}
+          echo ::set-env name=TF_IN_AUTOMATION::true
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.13.0
+          cli_config_credentials_hostname: "app.terraform.io"
+          cli_config_credentials_token: ${{ secrets.TERRAFORM_CLOUD_API_TOKEN }}
+
+      - name: Terraform format
+        id: fmt
+        continue-on-error: true
+        run: terraform fmt
+
+      - name: Terraform init
+        id: init
+        run: terraform init -backend-config="organization=${{ secrets.TERRAFORM_CLOUD_ORGANIZATION }}"
+
+      - name: Terraform validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform plan
+        id: plan
+        continue-on-error: true
+        run: terraform plan -no-color
+
+      - uses: actions/github-script@0.9.0
+        env:
+          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const output = `#### Terraform Format and Style 🖌 \`${{ steps.fmt.outcome }}\`
+            #### Terraform Initialization ⚙ \`${{ steps.init.outcome }}\`
+            #### Terraform Validation 🤖 \`${{ steps.validate.outcome }}\`
+            #### Terraform Plan 📖 \`${{ steps.plan.outcome }}\`
+
+            <details><summary>Show Plan</summary>
+
+            \`\`\`${process.env.PLAN}\`\`\`
+
+            </details>`;
+
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })

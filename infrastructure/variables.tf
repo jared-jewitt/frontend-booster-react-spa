@@ -23,9 +23,3 @@ variable "image_tag" {
   type = string
   description = "Google Container Registry image tag"
 }
-
-variable "container_environment_variables" {
-  type = map(string)
-  description = "Application container environment variables"
-  default = {}
-}

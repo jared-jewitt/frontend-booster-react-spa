@@ -8,59 +8,65 @@ on:
       - master
 
 jobs:
-  cd:
-    name: CD
+  push:
+    name: Push
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup
-        run: |
-          SERVICE_ACCOUNT_KEY="${{ secrets.SERVICE_ACCOUNT_KEY }}"
-          PROJECT_ID="${{ secrets.PROJECT_ID }}"
-          TERRAFORM_CLOUD_API_TOKEN="${{ secrets.TERRAFORM_CLOUD_API_TOKEN }}"
-          TERRAFORM_CLOUD_ORGANIZATION="${{ secrets.TERRAFORM_CLOUD_ORGANIZATION }}"
-          TF_WORKSPACE="$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
-          TF_IN_AUTOMATION="true"
-          echo ::set-env name=SERVICE_ACCOUNT_KEY::$SERVICE_ACCOUNT_KEY
-          echo ::set-env name=PROJECT_ID::$PROJECT_ID
-          echo ::set-env name=TERRAFORM_CLOUD_API_TOKEN::$TERRAFORM_CLOUD_API_TOKEN
-          echo ::set-env name=TERRAFORM_CLOUD_ORGANIZATION::$TERRAFORM_CLOUD_ORGANIZATION
-          echo ::set-env name=TF_WORKSPACE::$TF_WORKSPACE
-          echo ::set-env name=TF_IN_AUTOMATION::$TF_IN_AUTOMATION
-
       - name: Login
-        run: echo "${SERVICE_ACCOUNT_KEY}" | base64 --decode | docker login -u _json_key --password-stdin gcr.io
+        run: echo "${{ secrets.SERVICE_ACCOUNT_KEY }}" | base64 --decode | docker login -u _json_key --password-stdin gcr.io
 
       - name: Build, tag, and push image for development
         if: ${{ github.ref == 'refs/heads/development' }}
         run: |
           docker build --target=cd --tag=client:cd .
-          docker tag client:cd gcr.io/"${PROJECT_ID}"/client:development
-          docker push gcr.io/"${PROJECT_ID}"/client:development
+          docker tag client:cd gcr.io/"${{ secrets.PROJECT_ID }}"/client:development
+          docker push gcr.io/"${{ secrets.PROJECT_ID }}"/client:development
 
       - name: Pull, re-tag, and push image for staging
         if: ${{ github.ref == 'refs/heads/staging' }}
         run: |
-          docker pull gcr.io/"${PROJECT_ID}"/client:development
-          docker tag gcr.io/"${PROJECT_ID}"/client:development gcr.io/"${PROJECT_ID}"/client:staging
-          docker push gcr.io/"${PROJECT_ID}"/client:staging
+          docker pull gcr.io/"${{ secrets.PROJECT_ID }}"/client:development
+          docker tag gcr.io/"${{ secrets.PROJECT_ID }}"/client:development gcr.io/"${{ secrets.PROJECT_ID }}"/client:staging
+          docker push gcr.io/"${{ secrets.PROJECT_ID }}"/client:staging
 
       - name: Pull, re-tag, and push image for master
         if: ${{ github.ref == 'refs/heads/master' }}
         run: |
-          docker pull gcr.io/"${PROJECT_ID}"/client:staging
-          docker tag gcr.io/"${PROJECT_ID}"/client:staging gcr.io/"${PROJECT_ID}"/client:master
-          docker push gcr.io/"${PROJECT_ID}"/client:master
+          docker pull gcr.io/"${{ secrets.PROJECT_ID }}"/client:staging
+          docker tag gcr.io/"${{ secrets.PROJECT_ID }}"/client:staging gcr.io/"${{ secrets.PROJECT_ID }}"/client:master
+          docker push gcr.io/"${{ secrets.PROJECT_ID }}"/client:master
 
-      - name: Apply
+  apply:
+    name: Apply
+    runs-on: ubuntu-latest
+    needs: [push]
+    defaults:
+      run:
         working-directory: infrastructure
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set enviornment variables
         run: |
-          terraform init \
-            -input=false \
-            -backend-config="token="${TERRAFORM_CLOUD_API_TOKEN}"" \
-            -backend-config="organization="${TERRAFORM_CLOUD_ORGANIZATION}""
-          terraform apply \
-            -input=false \
-            -auto-approve
+          echo ::set-env name=TF_WORKSPACE::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')
+          echo ::set-env name=TF_IN_AUTOMATION::true
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.13.0
+          cli_config_credentials_hostname: "app.terraform.io"
+          cli_config_credentials_token: ${{ secrets.TERRAFORM_CLOUD_API_TOKEN }}
+
+      - name: Terraform init
+        run: terraform init -backend-config="organization=${{ secrets.TERRAFORM_CLOUD_ORGANIZATION }}"
+
+      - name: Terraform apply
+        run: terraform apply -auto-approve
