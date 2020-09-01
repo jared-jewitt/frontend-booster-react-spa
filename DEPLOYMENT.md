@@ -7,14 +7,14 @@ Please follow the steps below in order.
 #### Requirements:
 
 - [Google Cloud Console Account](https://console.cloud.google.com)
-- [GitHub Account](https://github.com/join)
 - [Terraform Cloud Account](https://app.terraform.io/signup/account)
+- [GitHub Account](https://github.com/join)
 
 ---
 
 #### Google Cloud Console
 
-1. [Create a new project name and id](https://console.cloud.google.com/projectcreate).
+1. [Create a new Project Name and ID](https://console.cloud.google.com/projectcreate).
 
 2. [Enable the Google Container Registry API](https://console.cloud.google.com/apis/library/containerregistry.googleapis.com).
 
@@ -52,9 +52,9 @@ this to anyone or check this into source control.
     - Configure settings:
         - Workspace Name: `<client-development|client-staging|client-master>`
 
-4. For each workspace, select `Settings / General`, and set the Terraform version to `0.13.0` and click **Save settings**.
+4. For each workspace, select _Settings / General_, and set the Terraform version to `0.13.0` and click **"Save settings"**.
 
-5. For each workspace, select `Variables`, and add the following variables under `Terraform Variables`:
+5. For each workspace, select _Variables_, and add the following variables under _Terraform Variables_:
     
     ```
     # ☐ HCL ☐ Sensitive 
@@ -79,7 +79,7 @@ this to anyone or check this into source control.
     - `staging`
     - `development`
     
-2. Select `Settings / Secrets`. Create the following secrets:
+2. Select _Settings / Secrets_. Create the following secrets:
 
     ```
     TERRAFORM_CLOUD_API_TOKEN = <token>
@@ -99,6 +99,6 @@ this to anyone or check this into source control.
    pull request to `development`, `staging`, and `master`. This is because Terraform is looking for an image to use 
    for the plan. This image doesn't get built and pushed until merge. That being said, it is still fine to merge your 
    PR in this state. The application will still deploy on merge since the image gets created and pushed right before
-   [Terraform Apply](https://www.terraform.io/docs/commands/apply.html). Subsequent pull requests to these branches
+   [Terraform apply](https://www.terraform.io/docs/commands/apply.html). Subsequent pull requests to these branches
    will now have an image tag to reference, and therefore will not experience this edge case.
 

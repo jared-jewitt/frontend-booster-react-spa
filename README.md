@@ -1,7 +1,7 @@
 # Client Booster - React
 
 This codebase is a boilerplate for a React client. It is intended to be used as a
-[Booster](https://github.com/jared-jewitt/booster-guidelines) for my [Launchpad](https://github.com/jared-jewitt/launch-pad). 
+[Booster](https://github.com/jared-jewitt/booster-guidelines) for my [Launchpad](https://github.com/jared-jewitt/launchpad). 
 However, that being said, it can still be used completely on its own - CI/CD and infrastructure come pre-configured.
 
 #### Requirements:
