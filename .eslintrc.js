@@ -1,24 +1,30 @@
+const path = require("path");
+
 module.exports = {
-  parser: 'babel-eslint',
-  env: {
-    node: true,
-    browser: true,
-    jest: true,
-  },
+  root: true,
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint", "import", "jest", "react", "react-hooks", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:jest/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+  ],
   settings: {
+    "import/resolver": {
+      alias: {
+        map: [["@", path.join(__dirname, "src")]],
+      },
+    },
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
-  plugins: ['jest', 'react'],
-  extends: ['eslint:recommended', 'plugin:jest/recommended', 'plugin:react/recommended'],
   rules: {
-    'semi': ['warn', 'always'],
-    'quotes': ['warn', 'single'],
-    'no-unused-vars': 'warn',
-    'no-case-declarations': 'off',
-    'react/prop-types': 'off',
-    'react/no-deprecated': 'warn',
-    'react/display-name': 'off',
+    "react/display-name": 0,
+    "react/prop-types": 0,
   },
 };
