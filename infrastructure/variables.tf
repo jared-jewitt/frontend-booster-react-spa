@@ -1,25 +1,25 @@
 variable "project_id" {
-  type = string
+  type        = string
   description = "Google Cloud project id"
 }
 
 variable "region" {
-  type = string
+  type        = string
   description = "Google Cloud region"
-  default = "us-central1"
+  default     = "us-central1"
 }
 
 variable "service_account_key" {
-  type = string
+  type        = string
   description = "Google Cloud service account base64 encoded key"
 }
 
 variable "service_name" {
-  type = string
+  type        = string
   description = "Google Cloud Run service name"
 }
 
 variable "image_tag" {
-  type = string
+  type        = string
   description = "Google Container Registry image tag"
 }

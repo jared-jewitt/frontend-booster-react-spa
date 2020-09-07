@@ -3,7 +3,7 @@ data "docker_registry_image" "image" {
 }
 
 resource "google_cloud_run_service" "client" {
-  name = var.service_name
+  name     = var.service_name
   location = var.region
 
   template {
@@ -15,15 +15,15 @@ resource "google_cloud_run_service" "client" {
   }
 
   traffic {
-    percent = 100
+    percent         = 100
     latest_revision = true
   }
 }
 
 resource "google_cloud_run_service_iam_member" "allUsers" {
   location = google_cloud_run_service.client.location
-  project = google_cloud_run_service.client.project
-  service = google_cloud_run_service.client.name
-  role = "roles/run.invoker"
-  member = "allUsers"
+  project  = google_cloud_run_service.client.project
+  service  = google_cloud_run_service.client.name
+  role     = "roles/run.invoker"
+  member   = "allUsers"
 }
