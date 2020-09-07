@@ -12,6 +12,7 @@ interface IGuardProps {
 
 export const PrivateGuard: React.FC<IGuardProps> = ({ component: Component, path, exact }): JSX.Element => {
   const { state } = useAuth();
+
   return (
     <GenericRoute
       exact={exact}
@@ -23,6 +24,7 @@ export const PrivateGuard: React.FC<IGuardProps> = ({ component: Component, path
 
 export const PublicGuard: React.FC<IGuardProps> = ({ component: Component, path, exact }): JSX.Element => {
   const { state } = useAuth();
+
   return (
     <GenericRoute
       path={path}

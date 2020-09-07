@@ -8,7 +8,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { DefinePlugin } = require("webpack");
 
 module.exports = ({ NODE_ENV, APP_ENV }) => {
-  const HOST = process.env.HOST || "0.0.0.0";
   const PORT = process.env.PORT || 3000;
   const ASSET_PATH = process.env.ASSET_PATH || "/";
 
@@ -140,7 +139,6 @@ module.exports = ({ NODE_ENV, APP_ENV }) => {
     devtool: "inline-source-map",
     devServer: {
       contentBase: PATHS.build,
-      host: HOST,
       port: PORT,
       compress: true,
       hot: true,

@@ -19,6 +19,7 @@ jest.mock("@/hooks", () => ({
 describe("Home - unit", () => {
   it("renders correctly", () => {
     const wrapper = shallow(<Home />);
+
     expect(wrapper).toMatchSnapshot();
   });
 });
