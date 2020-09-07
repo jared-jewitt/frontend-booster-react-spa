@@ -5,24 +5,25 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { DefinePlugin } = require("webpack");
 
-module.exports = (env) => {
+module.exports = ({ NODE_ENV, APP_ENV }) => {
   const HOST = process.env.HOST || "0.0.0.0";
   const PORT = process.env.PORT || 3000;
   const ASSET_PATH = process.env.ASSET_PATH || "/";
 
   const BUILD_FILE_NAMES = {
     // JS
-    jsFileName: env === "development" ? "js/[name].js" : "js/[name].[contenthash:8].js",
-    jsChunkFileName: env === "development" ? "js/[name].chunk.js" : "js/[id].[contenthash:8].chunk.js",
+    jsFileName: NODE_ENV === "development" ? "js/[name].js" : "js/[name].[contenthash:8].js",
+    jsChunkFileName: NODE_ENV === "development" ? "js/[name].chunk.js" : "js/[id].[contenthash:8].chunk.js",
 
     // Styles
-    stylesFileName: env === "development" ? "styles/[name].css" : "styles/[name].[contenthash:8].css",
-    stylesChunkFileName: env === "development" ? "styles/[id].chunk.css" : "styles/[id].[contenthash:8].chunk.css",
+    stylesFileName: NODE_ENV === "development" ? "styles/[name].css" : "styles/[name].[contenthash:8].css",
+    stylesChunkFileName: NODE_ENV === "development" ? "styles/[id].chunk.css" : "styles/[id].[contenthash:8].chunk.css",
 
     // Images / Fonts
-    imagesFileName: env === "development" ? "images/[name].[ext]" : "images/[name].[contenthash:8].[ext]",
-    fontsFileName: env === "development" ? "fonts/[name].[ext]" : "fonts/[name].[contenthash:8].[ext]",
+    imagesFileName: NODE_ENV === "development" ? "images/[name].[ext]" : "images/[name].[contenthash:8].[ext]",
+    fontsFileName: NODE_ENV === "development" ? "fonts/[name].[ext]" : "fonts/[name].[contenthash:8].[ext]",
   };
 
   const PATHS = {
@@ -67,7 +68,7 @@ module.exports = (env) => {
               loader: MiniCssExtractPlugin.loader,
               options: {
                 publicPath: "../",
-                hmr: env === "development",
+                hmr: NODE_ENV === "development",
               },
             },
             "css-loader",
@@ -127,6 +128,10 @@ module.exports = (env) => {
           ignore: ["*.html"],
         },
       ]),
+      new DefinePlugin({
+        "process.env.NODE_ENV": JSON.stringify(NODE_ENV),
+        "process.env.APP_ENV": JSON.stringify(APP_ENV),
+      }),
     ],
   };
 
@@ -174,5 +179,5 @@ module.exports = (env) => {
     },
   };
 
-  return env === "development" ? { ...baseConfig, ...devConfig } : { ...baseConfig, ...prodConfig };
+  return NODE_ENV === "development" ? { ...baseConfig, ...devConfig } : { ...baseConfig, ...prodConfig };
 };

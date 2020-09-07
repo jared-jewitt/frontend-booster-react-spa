@@ -5,6 +5,7 @@ import { IAuthPayload, IAuthContext } from "@/ts/interfaces";
 
 export const useAuth = (): IAuthContext => {
   const { updateAuthState, clearAuthState, state } = useContext(AuthContext);
+
   return {
     updateAuthState: (payload: IAuthPayload) => updateAuthState(payload),
     clearAuthState: () => clearAuthState(),

@@ -1,13 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { useAuth } from "@/hooks";
 
 export default (): JSX.Element => {
   const { clearAuthState } = useAuth();
-
-  useEffect(() => {
-    console.log(clearAuthState);
-  }, []);
 
   return (
     <div className="home">

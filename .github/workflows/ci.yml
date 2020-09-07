@@ -8,8 +8,8 @@ on:
       - master
 
 jobs:
-  docker:
-    name: Docker
+  test:
+    name: Test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -18,21 +18,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Test
+      - name: Run tests
         run: |
           docker build --target=ci --tag=client:ci .
           docker run client:ci
 
-  terraform:
-    name: Terraform
+  plan:
+    name: Plan
     runs-on: ubuntu-latest
-    env:
-      PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      TERRAFORM_CLOUD_API_TOKEN: ${{ secrets.TERRAFORM_CLOUD_API_TOKEN }}
-      TERRAFORM_CLOUD_ORGANIZATION: ${{ secrets.TERRAFORM_CLOUD_ORGANIZATION }}
-      TF_WORKSPACE: ${{ github.event.pull_request.base.ref }}
-      TF_IN_AUTOMATION: true
     defaults:
       run:
         working-directory: infrastructure
@@ -40,35 +33,41 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup
+      - name: Set enviornment variables
+        run: |
+          echo ::set-env name=TF_WORKSPACE::${{ github.event.pull_request.base.ref }}
+          echo ::set-env name=TF_IN_AUTOMATION::true
+
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 0.13.0
           cli_config_credentials_hostname: app.terraform.io
-          cli_config_credentials_token: TERRAFORM_CLOUD_API_TOKEN
+          cli_config_credentials_token: ${{ secrets.TERRAFORM_CLOUD_API_TOKEN }}
 
-      - name: Format
+      - name: Terraform format
         id: fmt
         continue-on-error: true
         run: terraform fmt
 
-      - name: Init
+      - name: Terraform init
         id: init
-        run: terraform init -backend-config="organization="${TERRAFORM_CLOUD_ORGANIZATION}""
+        run: terraform init -backend-config="organization=${{ secrets.TERRAFORM_CLOUD_ORGANIZATION }}"
 
-      - name: Validate
+      - name: Terraform validate
         id: validate
         run: terraform validate
 
-      - name: Plan
+      - name: Terraform plan
         id: plan
         continue-on-error: true
         run: terraform plan -no-color
 
-      - name: Output
-        uses: actions/github-script@0.9.0
+      - uses: actions/github-script@0.9.0
+        env:
+          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
         with:
-          github-token: GITHUB_TOKEN
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const output = `#### Terraform Format and Style 🖌 \`${{ steps.fmt.outcome }}\`
             #### Terraform Initialization ⚙ \`${{ steps.init.outcome }}\`

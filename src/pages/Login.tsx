@@ -4,6 +4,7 @@ import { useAuth } from "@/hooks";
 
 export default (): JSX.Element => {
   const { updateAuthState } = useAuth();
+
   return (
     <div className="login">
       <h1 className="login__title">Login</h1>

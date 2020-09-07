@@ -7,7 +7,12 @@ jest.mock("@/hooks", () => ({
   useAuth: () => ({
     updateAuthState: jest.fn(),
     clearAuthState: jest.fn(),
-    state: { isAuthenticated: true },
+    state: {
+      isAuthenticated: true,
+      user: {
+        name: "Foo",
+      },
+    },
   }),
 }));
 
