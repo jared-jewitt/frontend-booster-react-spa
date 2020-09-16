@@ -1,6 +1,6 @@
-# Client Booster - React
+# Frontend Booster - React
 
-This codebase is a boilerplate for a React client. It is intended to be used as a
+This codebase is a boilerplate for a React frontend. It is intended to be used as a
 [Booster](https://github.com/jared-jewitt/booster-guidelines) for my [Launchpad](https://github.com/jared-jewitt/launchpad).
 However, that being said, it can still be used completely on its own - CI/CD and infrastructure come pre-configured.
 
@@ -26,7 +26,7 @@ However, that being said, it can still be used completely on its own - CI/CD and
 
 ## Getting Started
 
-Run the client via either option below, then visit it at `http://localhost:3000`
+Run the frontend via either option below, then visit the client at `http://localhost:3000`
 
 **_Docker:_**
 
@@ -57,11 +57,11 @@ npm start
 | Command                     | Description                                                       |
 | --------------------------- | ----------------------------------------------------------------- |
 | npm run build               | Builds the client                                                 |
-| npm run start               | Runs the client locally with hot reloading on port 3000           |
-| npm run serve               | Runs the built client on port 4000                                |
-| npm run test                | Runs all jest tests                                               |
-| npm run test:update         | Updates jest snapshot files                                       |
-| npm run test:coverage       | Runs all jest tests and displays a coverage report in the console |
+| npm run start               | Runs the client with hot reloading on port 3000                   |
+| npm run serve               | Serves the built client on port 4000                              |
+| npm run test                | Runs all Jest tests                                               |
+| npm run test:update         | Updates Jest snapshot files                                       |
+| npm run test:coverage       | Runs all Jest tests and displays a coverage report in the console |
 | npm run lint                | Identifies `js, jsx, ts, tsx` linting warnings/errors             |
 | npm run lint:fix            | Fixes `js, jsx, ts, tsx` linting errors                           |
 | npm run stylelint           | Identifies `sass, scss` linting warnings/errors                   |

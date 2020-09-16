@@ -14,8 +14,6 @@ services:
       - "/usr/src/app/node_modules"
     ports:
       - 3000:3000
-    environment:
-      - PORT=3000
     networks:
       - default
 

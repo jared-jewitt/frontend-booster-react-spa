@@ -14,4 +14,4 @@ purge:
 
 workspace:
 	@echo "Shelling into the client..."
-	@docker-compose exec client bash
+	@docker-compose exec client sh

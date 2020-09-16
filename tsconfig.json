@@ -1,6 +1,6 @@
 {
-  "include": ["src/**/*", "typings/*.d.ts"],
-  "exclude": ["node_modules", "build", "coverage", "public", "nginx", "infrastructure", ".github"],
+  "include": ["app/**/*", "tests/**/*", "typings/*.d.ts"],
+  "exclude": ["node_modules", "build", "coverage"],
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
@@ -11,9 +11,9 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "outDir": "build",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["app/*"]
     }
   }
 }

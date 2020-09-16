@@ -1,3 +1,6 @@
-node_modules
-build
-coverage
+# Ignore everything
+/*
+
+# Except these things...
+!app
+!tests
