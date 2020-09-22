@@ -2,15 +2,16 @@
   "include": ["app/**/*", "tests/**/*", "typings/*.d.ts"],
   "exclude": ["node_modules", "build", "coverage"],
   "compilerOptions": {
+    "outDir": "build",
     "module": "commonjs",
     "target": "es5",
+    "lib": ["es6", "dom"],
     "jsx": "react",
     "allowJs": true,
     "sourceMap": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "outDir": "build",
     "baseUrl": ".",
     "paths": {
       "@/*": ["app/*"]

@@ -54,19 +54,14 @@ npm start
 
 **_NPM:_**
 
-| Command                     | Description                                                       |
-| --------------------------- | ----------------------------------------------------------------- |
-| npm run build               | Builds the client                                                 |
-| npm run start               | Runs the client with hot reloading on port 3000                   |
-| npm run serve               | Serves the built client on port 4000                              |
-| npm run test                | Runs all Jest tests                                               |
-| npm run test:update         | Updates Jest snapshot files                                       |
-| npm run test:coverage       | Runs all Jest tests and displays a coverage report in the console |
-| npm run lint                | Identifies `js, jsx, ts, tsx` linting warnings/errors             |
-| npm run lint:fix            | Fixes `js, jsx, ts, tsx` linting errors                           |
-| npm run stylelint           | Identifies `sass, scss` linting warnings/errors                   |
-| npm run stylelint:fix       | Fixes `sass, scss` linting errors                                 |
-| npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200               |
+| Command                     | Description                                         |
+| --------------------------- | --------------------------------------------------- |
+| npm run build               | Builds the client                                   |
+| npm run serve               | Serves the built client on port 4000                |
+| npm run start               | Runs the client with hot reloading on port 3000     |
+| npm run test                | Runs all tests                                      |
+| npm run lint                | Fixes all linting errors                            |
+| npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200 |
 
 ## Deployment
 

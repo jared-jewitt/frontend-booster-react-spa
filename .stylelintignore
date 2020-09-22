@@ -1,6 +1,7 @@
-# Ignore everything
+# Ignore everything...
 /*
 
-# Except these things...
+# Except these
 !app
 !tests
+!typings
