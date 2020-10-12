@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "./utils/scss/variables/theme";
+@use "~@/utils/scss/variables/theme";
 
 @font-face {
   font-family: "OxygenLight";
