@@ -1,23 +1,23 @@
 version: "3.7"
 
-####################### Services Definition #######################
+  ####################### Services Definition #######################;
 services:
   client:
-    image: client:local
-    container_name: client
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: local
-    volumes:
-      - "./:/usr/src/app"
-      - "/usr/src/app/node_modules"
-    ports:
-      - 3000:3000
-    networks:
-      - default
+  image: client:local
+  container_name: client
+  build:
+  context: .
+  dockerfile: Dockerfile
+  target: local
+  volumes:
+  - "./:/usr/src/app"
+  - "/usr/src/app/node_modules"
+  ports:
+  - 3000:3000
+  networks:
+  - default
 
-####################### Networks Definition #######################
-networks:
+  ####################### Networks Definition #######################
+  networks:
   default:
-    driver: bridge
+  driver:;

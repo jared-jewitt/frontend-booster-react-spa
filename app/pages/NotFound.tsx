@@ -1,11 +1,9 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
-import { Route } from "@/ts/enums";
+import "@/styles/pages/not-found.scss";
 
 export default (): JSX.Element => (
-  <Fragment>
+  <div className="not-found">
     <p>404 - Not found</p>
-    <Link to={Route.Home}>Go to Home</Link>
-  </Fragment>
+  </div>
 );

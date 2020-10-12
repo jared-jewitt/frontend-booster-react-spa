@@ -59,8 +59,8 @@ npm start
 | npm run build               | Builds the client                                   |
 | npm run serve               | Serves the built client on port 4000                |
 | npm run start               | Runs the client with hot reloading on port 3000     |
-| npm run test                | Runs all tests                                      |
-| npm run lint                | Fixes all linting errors                            |
+| npm run test                | Runs the suite of Jest tests                        |
+| npm run lint                | Runs Prettier, ESLint, and StyleLint formatters     |
 | npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200 |
 
 ## Deployment

@@ -2,13 +2,13 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import { AuthProvider } from "@/store";
-import { HomePage } from "@/pages";
+import { LoginPage } from "@/pages";
 
-describe("Unit - HomePage", () => {
+describe("Unit - LoginPage", () => {
   it("renders correctly", () => {
     const wrapper = shallow(
       <AuthProvider>
-        <HomePage />
+        <LoginPage />
       </AuthProvider>
     );
 

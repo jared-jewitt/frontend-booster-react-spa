@@ -33,12 +33,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup 1/2
+      - name: Setup enviornment variables
         run: |
           echo ::set-env name=TF_WORKSPACE::${{ github.event.pull_request.base.ref }}
           echo ::set-env name=TF_IN_AUTOMATION::true
 
-      - name: Setup 2/2
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 0.13.0

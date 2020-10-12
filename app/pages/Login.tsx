@@ -1,21 +1,18 @@
 import React from "react";
 
-import { useAuth } from "@/hooks";
+import { AuthContext, IAuthContext } from "@/store";
+
+import Logo from "@/assets/images/logo.svg";
+
+import "@/styles/pages/login.scss";
 
 export default (): JSX.Element => {
-  const { updateAuthState } = useAuth();
+  const { updateAuthState } = React.useContext<IAuthContext>(AuthContext);
 
   return (
     <div className="login">
-      <h1 className="login__title">Login</h1>
-      <p>
-        Try navigating to <code>/</code>
-        <br />
-        It won&apos;t work due to private routing constraints.
-      </p>
-      <button className="login__login-btn" onClick={() => updateAuthState({ name: "Foo Bar" })}>
-        Simulate login
-      </button>
+      <img className="login__logo" alt="Logo" src={Logo} />
+      <button onClick={() => updateAuthState({ user: { name: "Foo Bar" } })}>Simulate login</button>
     </div>
   );
 };

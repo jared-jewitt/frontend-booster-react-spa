@@ -3,9 +3,9 @@
   "exclude": ["node_modules", "build", "coverage"],
   "compilerOptions": {
     "outDir": "build",
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "moduleResolution": "node",
     "jsx": "react",
     "allowJs": true,
     "sourceMap": true,
@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["app/*"]
+      
     }
   }
 }

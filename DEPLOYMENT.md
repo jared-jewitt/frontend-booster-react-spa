@@ -76,9 +76,11 @@ Please follow the steps below in order.
 #### GitHub
 
 1. Navigate to your GitHub repository and create the following branches:
+
    - `master`
    - `staging`
    - `development`
+
 2. Select _Settings / Secrets_. Create the following secrets:
 
    ```

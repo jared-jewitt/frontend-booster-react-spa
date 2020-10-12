@@ -1,0 +1,5 @@
+@use "../partials/placeholders/layout" as *;
+
+.home {
+  @extend %full-screen-center;
+}

@@ -1,7 +1,3 @@
-# Ignore everything...
-/*
-
-# Except these
-!app
-!tests
-!typings
+node_modules
+build
+coverage
