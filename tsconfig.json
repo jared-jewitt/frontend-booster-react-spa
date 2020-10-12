@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      
+      "@/*": ["app/*"]
     }
   }
 }
