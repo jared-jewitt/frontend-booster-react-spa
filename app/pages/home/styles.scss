@@ -1,0 +1,5 @@
+@use "~@/utils/scss/placeholders/layout" as *;
+
+.home {
+  @extend %full-screen-center;
+}

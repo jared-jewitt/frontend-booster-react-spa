@@ -1,3 +1,3 @@
-export { default as HomePage } from "./Home";
-export { default as LoginPage } from "./Login";
-export { default as NotFoundPage } from "./NotFound";
+export { default as HomePage } from "./home";
+export { default as LoginPage } from "./login";
+export { default as NotFoundPage } from "./not-found";

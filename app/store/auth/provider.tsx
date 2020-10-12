@@ -1,6 +1,6 @@
 import React from "react";
 
-import Context from "./Context";
+import Context from "./context";
 
 export interface IProps {
   children: React.ReactNode;

@@ -1,0 +1,5 @@
+@use "~@/utils/scss/placeholders/layout" as *;
+
+.login {
+  @extend %full-screen-center;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IState } from "./Provider";
+import { IState } from "./provider";
 
 export interface IContext {
   updateAuthState: (payload: Pick<IState, "user">) => void;
