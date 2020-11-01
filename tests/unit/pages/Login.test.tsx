@@ -4,7 +4,7 @@ import { shallow } from "enzyme";
 import { AuthProvider } from "@/store";
 import { LoginPage } from "@/pages";
 
-describe("Unit - LoginPage", () => {
+describe("LoginPage", () => {
   it("renders correctly", () => {
     const wrapper = shallow(
       <AuthProvider>

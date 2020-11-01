@@ -1,23 +1,24 @@
-# Frontend Booster - React
+# Frontend Booster - React (CSR)
 
-This codebase is a boilerplate for a React frontend. It is intended to be used as a
+This codebase is a boilerplate for a React frontend - client side rendered. It is intended to be used as a
 [Booster](https://github.com/jared-jewitt/booster-guidelines) for my [Launchpad](https://github.com/jared-jewitt/launchpad).
-However, that being said, it can still be used completely on its own - CI/CD and infrastructure come pre-configured.
+However, that being said, it can still be used completely on its own - CI/CD and infrastructure (IaC) come pre-configured.
 
 #### Requirements:
 
 - [Docker](https://www.docker.com/) (Optional)
-- [Node](https://nodejs.org/en/) (Optional if Docker is used)
-- [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (Windows users only)
+- [Node](https://nodejs.org/en/) (Required - unless Docker is used)
+- [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (Optional - only for Windows users)
 
 #### Features:
 
 - [TypeScript](https://www.typescriptlang.org/)
+- [Babel](https://babeljs.io/)
+- [Webpack](https://webpack.js.org/)
 - [Prettier](https://prettier.io/)
 - [ESLint](https://eslint.org/)
 - [Stylelint](https://stylelint.io/)
-- [Babel](https://babeljs.io/)
-- [Webpack](https://webpack.js.org/)
+- [Husky](https://github.com/typicode/husky)
 - [Jest](https://jestjs.io/)
 
 #### Developers:

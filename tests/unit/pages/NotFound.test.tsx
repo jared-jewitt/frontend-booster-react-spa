@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 
 import { NotFoundPage } from "@/pages";
 
-describe("Unit - NotFoundPage", () => {
+describe("NotFoundPage", () => {
   it("renders correctly", () => {
     const wrapper = shallow(<NotFoundPage />);
 
