@@ -1,6 +1,6 @@
 {
-  "name": "Boilerplate for a React frontend - client side rendered",
-  "short_name": "React Boilerplate",
+  "name": "React SPA Boilerplate",
+  "short_name": "React SPA",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

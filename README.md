@@ -1,6 +1,6 @@
-# Frontend Booster - React (CSR)
+# Frontend Booster - React SPA (Single Page Application)
 
-This codebase is a boilerplate for a React frontend - client side rendered. It is intended to be used as a
+This codebase is a React SPA boilerplate. It is intended to be used as a
 [Booster](https://github.com/jared-jewitt/booster-guidelines) for my [Launchpad](https://github.com/jared-jewitt/launchpad).
 However, that being said, it can still be used completely on its own - CI/CD and infrastructure (IaC) come pre-configured.
 

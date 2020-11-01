@@ -1,7 +1,7 @@
 {
-  "name": "frontend-booster-react-csr",
+  "name": "frontend-booster-react-spa",
   "version": "1.0.0",
-  "description": "Boilerplate for a React frontend - client side rendered",
+  "description": "React SPA boilerplate",
   "license": "MIT",
   "scripts": {
     "build": "webpack --env=production",
