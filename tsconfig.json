@@ -1,8 +1,8 @@
 {
-  "include": ["app/**/*", "tests/**/*", "typings/*.d.ts"],
-  "exclude": ["node_modules", "build", "coverage"],
+  "include": ["src/**/*", "tests/**/*", "typings/*.d.ts"],
+  "exclude": ["node_modules", "build"],
   "compilerOptions": {
-    "outDir": "build",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "target": "es5",
     "moduleResolution": "node",
@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["app/*"]
+      "@/*": ["src/*"]
     }
   }
 }

@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const autoprefixer = require("autoprefixer");
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -6,25 +7,27 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-module.exports = (env) => {
+module.exports = () => {
+  const ASSET_PATH = process.env.ASSET_PATH || "/";
   const HOST = process.env.HOST || "0.0.0.0";
   const PORT = process.env.PORT || 3000;
+  const NODE_ENV = process.env.NODE_ENV;
 
   const BUILD_FILE_NAMES = {
-    jsFileName: env === "development" ? "js/[name].js" : "js/[name].[contenthash:8].js",
-    jsChunkFileName: env === "development" ? "js/[name].chunk.js" : "js/[id].[contenthash:8].chunk.js",
-    stylesFileName: env === "development" ? "styles/[name].css" : "styles/[name].[contenthash:8].css",
-    stylesChunkFileName: env === "development" ? "styles/[id].chunk.css" : "styles/[id].[contenthash:8].chunk.css",
-    imagesFileName: env === "development" ? "images/[name].[ext]" : "images/[name].[contenthash:8].[ext]",
-    fontsFileName: env === "development" ? "fonts/[name].[ext]" : "fonts/[name].[contenthash:8].[ext]",
+    jsFileName: NODE_ENV === "development" ? "js/[name].js" : "js/[name].[contenthash:8].js",
+    jsChunkFileName: NODE_ENV === "development" ? "js/[name].chunk.js" : "js/[id].[contenthash:8].chunk.js",
+    stylesFileName: NODE_ENV === "development" ? "styles/[name].css" : "styles/[name].[contenthash:8].css",
+    stylesChunkFileName: NODE_ENV === "development" ? "styles/[id].chunk.css" : "styles/[id].[contenthash:8].chunk.css",
+    imagesFileName: NODE_ENV === "development" ? "images/[name].[ext]" : "images/[name].[contenthash:8].[ext]",
+    fontsFileName: NODE_ENV === "development" ? "fonts/[name].[ext]" : "fonts/[name].[contenthash:8].[ext]",
   };
 
   const PATHS = {
-    app: path.join(__dirname, "app"),
+    src: path.join(__dirname, "src"),
     public: path.join(__dirname, "public"),
     build: path.join(__dirname, "build"),
     node_modules: path.join(__dirname, "node_modules"),
-    entry: path.join(__dirname, "app", "index.tsx"),
+    entry: path.join(__dirname, "src", "index.tsx"),
     template: path.join(__dirname, "public", "index.html"),
   };
 
@@ -34,14 +37,14 @@ module.exports = (env) => {
     },
     output: {
       path: PATHS.build,
-      publicPath: "/",
+      publicPath: ASSET_PATH,
       filename: BUILD_FILE_NAMES.jsFileName,
       chunkFilename: BUILD_FILE_NAMES.jsChunkFileName,
     },
     resolve: {
       extensions: [".tsx", ".ts", ".jsx", ".js"],
       alias: {
-        "@": PATHS.app,
+        "@": PATHS.src,
       },
     },
     module: {
@@ -57,8 +60,7 @@ module.exports = (env) => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: "../",
-                hmr: env === "development",
+                hmr: NODE_ENV === "development",
               },
             },
             "css-loader",
@@ -118,6 +120,9 @@ module.exports = (env) => {
           ignore: ["*.html"],
         },
       ]),
+      new webpack.DefinePlugin({
+        "process.env.NODE_ENV": JSON.stringify(NODE_ENV),
+      }),
     ],
   };
 
@@ -165,5 +170,5 @@ module.exports = (env) => {
     },
   };
 
-  return env === "development" ? { ...baseConfig, ...devConfig } : { ...baseConfig, ...prodConfig };
+  return { ...baseConfig, ...(NODE_ENV === "development" ? devConfig : prodConfig) };
 };

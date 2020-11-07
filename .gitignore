@@ -1,6 +1,5 @@
 node_modules
 build
-coverage
 bundle-stats.json
 
 # General
