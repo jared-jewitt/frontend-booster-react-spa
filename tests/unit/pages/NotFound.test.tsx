@@ -1,12 +1,12 @@
 import React from "react";
-import { shallow } from "enzyme";
+
+import { render } from "../../utils";
 
 import { NotFoundPage } from "@/pages";
 
 describe("NotFoundPage", () => {
-  it("renders correctly", () => {
-    const wrapper = shallow(<NotFoundPage />);
-
-    expect(wrapper).toMatchSnapshot();
+  it("matches snapshot", () => {
+    const { asFragment } = render(<NotFoundPage />, {});
+    expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomePage renders correctly 1`] = `ShallowWrapper {}`;
+exports[`HomePage matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="home"
+  >
+    <p>
+      Welcome, Unknown
+    </p>
+    <button>
+      Simulate logout
+    </button>
+  </div>
+</DocumentFragment>
+`;

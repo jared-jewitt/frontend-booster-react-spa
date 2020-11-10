@@ -1,11 +1,11 @@
 import React from "react";
 
-import { AuthContext, IAuthContext } from "@/store";
+import { AuthContext } from "@/store";
 
 import "./styles.scss";
 
 export default (): JSX.Element => {
-  const { clearAuthState, state } = React.useContext<IAuthContext>(AuthContext);
+  const { clearAuthState, state } = React.useContext(AuthContext);
 
   return (
     <div className="home">

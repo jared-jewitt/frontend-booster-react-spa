@@ -1,17 +1,12 @@
 import React from "react";
-import { shallow } from "enzyme";
 
-import { AuthProvider } from "@/store";
+import { render } from "../../utils";
+
 import { HomePage } from "@/pages";
 
 describe("HomePage", () => {
-  it("renders correctly", () => {
-    const wrapper = shallow(
-      <AuthProvider>
-        <HomePage />
-      </AuthProvider>
-    );
-
-    expect(wrapper).toMatchSnapshot();
+  it("matches snapshot", () => {
+    const { asFragment } = render(<HomePage />, {});
+    expect(asFragment()).toMatchSnapshot();
   });
 });

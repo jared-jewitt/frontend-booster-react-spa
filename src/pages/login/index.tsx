@@ -1,12 +1,12 @@
 import React from "react";
 
-import { AuthContext, IAuthContext } from "@/store";
+import { AuthContext } from "@/store";
 import { Logo } from "@/assets";
 
 import "./styles.scss";
 
 export default (): JSX.Element => {
-  const { updateAuthState } = React.useContext<IAuthContext>(AuthContext);
+  const { updateAuthState } = React.useContext(AuthContext);
 
   return (
     <div className="login">
