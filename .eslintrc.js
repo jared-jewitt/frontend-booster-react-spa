@@ -19,6 +19,9 @@ module.exports = {
         map: [["@", path.join(__dirname, "src")]],
       },
     },
+    react: {
+      version: "detect",
+    },
   },
   rules: {
     "react/display-name": 0,
