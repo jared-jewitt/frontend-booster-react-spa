@@ -1,6 +1,5 @@
 {
   "include": ["src/**/*", "tests/**/*", "typings/*.d.ts"],
-  "exclude": ["node_modules", "build"],
   "compilerOptions": {
     "target": "ES5",
     "module": "ESNext",

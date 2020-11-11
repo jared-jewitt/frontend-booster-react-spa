@@ -4,7 +4,7 @@
   "description": "React SPA boilerplate",
   "license": "MIT",
   "scripts": {
-    "prod": "cross-env NODE_ENV=production webpack && serve -n -s build -p 4000",
+    "prod": "cross-env NODE_ENV=production webpack && serve -n -s build -p ${PORT:-4000}",
     "dev": "cross-env NODE_ENV=development webpack serve",
     "test": "cross-env NODE_ENV=test jest",
     "lint": "prettier --write \"**/*.{js,ts,jsx,tsx}\" && eslint --fix \"**/*.{js,ts,jsx,tsx}\" && stylelint --fix \"**/*.{css,scss,sass}\"",
@@ -53,6 +53,7 @@
     "sass": "^1.29.0",
     "sass-loader": "^10.0.5",
     "serve": "^11.3.2",
+    "style-loader": "^2.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-sass-guidelines": "^7.1.0",
     "stylelint-scss": "^3.18.0",

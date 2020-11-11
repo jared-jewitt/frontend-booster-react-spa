@@ -7,10 +7,11 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = () => {
   const TITLE = "React SPA boilerplate";
+  const TARGET = "web";
 
   const NODE_ENV = process.env.NODE_ENV || "production";
   const ASSET_PATH = process.env.ASSET_PATH || "/";
-  const HOST = process.env.HOST || "0.0.0.0";
+  const HOST = process.env.HOST || "localhost";
   const PORT = process.env.PORT || 3000;
 
   const BUILD_FILE_NAMES = {
@@ -31,6 +32,7 @@ module.exports = () => {
   };
 
   return {
+    target: TARGET,
     mode: NODE_ENV,
     entry: PATHS.entry,
     output: {
@@ -66,7 +68,12 @@ module.exports = () => {
         },
         {
           test: /\.(sa|sc|c)ss$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
+          use: [
+            NODE_ENV === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
+            "css-loader",
+            "postcss-loader",
+            "sass-loader",
+          ],
         },
         {
           test: /\.(ico|gif|png|jpg|jpeg|svg|woff|woff2|eot|ttf|otf)$/,
