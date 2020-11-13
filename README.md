@@ -15,6 +15,7 @@ However, that being said, it can still be used completely on its own - CI/CD and
 - [TypeScript](https://www.typescriptlang.org/)
 - [Babel](https://babeljs.io/)
 - [Webpack](https://webpack.js.org/)
+- [Browserslist](https://browserl.ist/)
 - [Prettier](https://prettier.io/)
 - [ESLint](https://eslint.org/)
 - [Stylelint](https://stylelint.io/)

@@ -1,5 +1,6 @@
 {
   "include": ["src/**/*", "tests/**/*", "typings/*.d.ts"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "target": "ES5",
     "module": "ESNext",
@@ -10,7 +11,7 @@
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": false,
+    "noEmit": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,

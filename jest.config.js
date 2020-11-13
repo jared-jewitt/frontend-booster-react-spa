@@ -1,8 +1,8 @@
 module.exports = {
   testEnvironment: "jsdom",
   moduleNameMapper: {
-    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "jest-transform-stub",
-    "\\.(css|scss|sass)$": "identity-obj-proxy",
+    "\\.(ico|bmp|gif|png|jpg|jpeg|svg|woff|woff2|eot|ttf|otf)$": "jest-transform-stub",
+    "\\.(scss|sass|css)$": "identity-obj-proxy",
     "\\@/(.*)$": "<rootDir>/src/$1",
   },
 };

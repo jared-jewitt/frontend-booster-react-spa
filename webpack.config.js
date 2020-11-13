@@ -54,7 +54,7 @@ module.exports = () => {
       stats: "errors-warnings",
     },
     resolve: {
-      extensions: [".tsx", ".ts", ".jsx", ".js"],
+      extensions: [".tsx", ".ts", ".jsx", ".js", ".scss", ".sass", ".css"],
       alias: {
         "@": PATHS.src,
       },
@@ -76,7 +76,7 @@ module.exports = () => {
           ],
         },
         {
-          test: /\.(ico|gif|png|jpg|jpeg|svg|woff|woff2|eot|ttf|otf)$/,
+          test: /\.(ico|bmp|gif|png|jpg|jpeg|svg|woff|woff2|eot|ttf|otf)$/,
           type: "asset",
         },
       ],
