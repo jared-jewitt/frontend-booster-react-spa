@@ -11,7 +11,7 @@ export interface IState {
   user: Record<string, any>;
 }
 
-export default ({ children }: IProps): JSX.Element => {
+export default ({ children }: IProps): React.ReactElement => {
   const initialState = { isAuthenticated: false, user: {} };
   const dehydratedState = localStorage.getItem("auth") || null;
   const [state, setState] = React.useState<IState>(dehydratedState ? JSON.parse(dehydratedState) : initialState);
@@ -27,11 +27,15 @@ export default ({ children }: IProps): JSX.Element => {
     setState(initialState);
   };
 
-  const contextValue = {
-    updateAuthState,
-    clearAuthState,
-    state,
-  };
-
-  return <Context.Provider value={contextValue}>{children}</Context.Provider>;
+  return (
+    <Context.Provider
+      value={{
+        updateAuthState,
+        clearAuthState,
+        state,
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
 };

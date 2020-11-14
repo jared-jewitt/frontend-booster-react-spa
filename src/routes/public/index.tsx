@@ -3,12 +3,10 @@ import { Route, Switch } from "react-router-dom";
 
 import { Loader } from "@/components";
 
-const LoginPage = React.lazy<React.FC>((): Promise<typeof import("@/pages/login")> => import("@/pages/login"));
-const NotFoundPage = React.lazy<React.FC>(
-  (): Promise<typeof import("@/pages/not-found")> => import("@/pages/not-found")
-);
+const LoginPage = React.lazy(() => import("@/pages/login"));
+const NotFoundPage = React.lazy(() => import("@/pages/not-found"));
 
-export default (): JSX.Element => {
+export default (): React.ReactElement => {
   return (
     <Suspense fallback={<Loader />}>
       <Switch>

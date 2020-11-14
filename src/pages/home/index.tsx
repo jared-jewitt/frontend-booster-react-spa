@@ -4,7 +4,7 @@ import { AuthContext } from "@/store";
 
 import styles from "./styles.module.scss";
 
-export default (): JSX.Element => {
+export default (): React.ReactElement => {
   const { clearAuthState, state } = React.useContext(AuthContext);
 
   return (

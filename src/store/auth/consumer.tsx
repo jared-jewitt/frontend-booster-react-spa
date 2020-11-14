@@ -6,6 +6,6 @@ export interface IProps {
   children: (value: IContext) => React.ReactNode;
 }
 
-export default ({ children }: IProps): JSX.Element => {
+export default ({ children }: IProps): React.ReactElement => {
   return <Context.Consumer>{(value) => children(value)}</Context.Consumer>;
 };

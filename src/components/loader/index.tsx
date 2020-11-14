@@ -2,6 +2,6 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export default (): JSX.Element => {
+export default (): React.ReactElement => {
   return <div className={styles.loader}>Loading...</div>;
 };

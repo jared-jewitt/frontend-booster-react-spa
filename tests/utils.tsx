@@ -4,7 +4,7 @@ import { render, RenderResult } from "@testing-library/react";
 
 import { AuthProvider } from "@/store";
 
-const AllTheProviders = ({ children }: { children: React.ReactElement }): JSX.Element => {
+const AllTheProviders = ({ children }) => {
   return (
     <AuthProvider>
       <BrowserRouter>{children}</BrowserRouter>

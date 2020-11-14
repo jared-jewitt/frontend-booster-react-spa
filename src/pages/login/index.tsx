@@ -5,7 +5,7 @@ import { Logo } from "@/assets";
 
 import styles from "./styles.module.scss";
 
-export default (): JSX.Element => {
+export default (): React.ReactElement => {
   const { updateAuthState } = React.useContext(AuthContext);
 
   return (
