@@ -1,3 +1,9 @@
+// Styles
+declare module "*.scss";
+declare module "*.sass";
+declare module "*.css";
+
+// Assets
 declare module "*.ico";
 declare module "*.bmp";
 declare module "*.gif";

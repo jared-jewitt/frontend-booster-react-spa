@@ -1,7 +1,7 @@
 import React from "react";
 
-import "./styles.scss";
+import styles from "./styles.module.scss";
 
 export default (): JSX.Element => {
-  return <div className="loader">Loading...</div>;
+  return <div className={styles.loader}>Loading...</div>;
 };

@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./styles.scss";
+import styles from "./styles.module.scss";
 
 export default (): JSX.Element => (
-  <div className="not-found">
+  <div className={styles.notFound}>
     <p>404 - Not found</p>
   </div>
 );
