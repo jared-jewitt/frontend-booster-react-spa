@@ -9,18 +9,18 @@ module.exports = () => {
   const TITLE = "React SPA boilerplate";
   const TARGET = "web";
 
-  const NODE_ENV = process.env.NODE_ENV || "production";
-  const ASSET_PATH = process.env.ASSET_PATH || "/";
+  const MODE = process.env.NODE_ENV || "production";
+  const PUBLIC_PATH = process.env.PUBLIC_PATH || "/";
   const HOST = process.env.HOST || "localhost";
   const PORT = process.env.PORT || 3000;
 
   const BUILD_FILE_NAMES = {
     htmlFileName: "index.html",
-    jsFileName: NODE_ENV === "development" ? "js/[name].js" : "js/[name].[contenthash:8].js",
-    jsChunkFileName: NODE_ENV === "development" ? "js/[id].chunk.js" : "js/[id].[contenthash:8].chunk.js",
-    styleFileName: NODE_ENV === "development" ? "styles/[name].css" : "styles/[name].[contenthash:8].css",
-    styleChunkFileName: NODE_ENV === "development" ? "styles/[id].chunk.css" : "styles/[id].[contenthash:8].chunk.css",
-    assetModuleFileName: NODE_ENV === "development" ? "assets/[name][ext]" : "assets/[name].[contenthash:8][ext]",
+    jsFileName: MODE === "development" ? "js/[name].js" : "js/[name].[contenthash:8].js",
+    jsChunkFileName: MODE === "development" ? "js/[id].chunk.js" : "js/[id].[contenthash:8].chunk.js",
+    styleFileName: MODE === "development" ? "styles/[name].css" : "styles/[name].[contenthash:8].css",
+    styleChunkFileName: MODE === "development" ? "styles/[id].chunk.css" : "styles/[id].[contenthash:8].chunk.css",
+    assetModuleFileName: MODE === "development" ? "assets/[name][ext]" : "assets/[name].[contenthash:8][ext]",
   };
 
   const PATHS = {
@@ -33,11 +33,11 @@ module.exports = () => {
 
   return {
     target: TARGET,
-    mode: NODE_ENV,
+    mode: MODE,
     entry: PATHS.entry,
     output: {
       path: PATHS.build,
-      publicPath: ASSET_PATH,
+      publicPath: PUBLIC_PATH,
       filename: BUILD_FILE_NAMES.jsFileName,
       chunkFilename: BUILD_FILE_NAMES.jsChunkFileName,
       assetModuleFilename: BUILD_FILE_NAMES.assetModuleFileName,
@@ -69,7 +69,7 @@ module.exports = () => {
         {
           test: /\.(sa|sc|c)ss$/,
           use: [
-            NODE_ENV === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
+            MODE === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
             "css-loader",
             "postcss-loader",
             "sass-loader",
