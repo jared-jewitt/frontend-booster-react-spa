@@ -94,7 +94,13 @@ module.exports = () => {
         template: PATHS.template,
       }),
       new CopyPlugin({
-        patterns: [{ from: PATHS.public, to: PATHS.build, globOptions: { ignore: ["*.html"] } }],
+        patterns: [
+          {
+            from: PATHS.public,
+            to: PATHS.build,
+            globOptions: { ignore: ["*.html"] },
+          },
+        ],
       }),
     ],
   };

@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "prettier --check \"**/*.{tsx,ts,jsx,js}\" && eslint \"**/*.{tsx,ts,jsx,js}\" && stylelint \"**/*.{scss,sass,css}\""
+    "pre-commit": "lint-staged"
   }
 }

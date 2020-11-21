@@ -1,3 +1,7 @@
-node_modules
-build
-bundle-stats.json
+# Ignore everything...
+/*
+
+# Except
+!src
+!tests
+!typings

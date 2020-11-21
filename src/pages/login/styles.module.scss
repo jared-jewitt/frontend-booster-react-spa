@@ -1,5 +1,9 @@
 @use "~@/utils/scss/placeholders/layout" as *;
 
-.login {
+.root {
   @extend %full-screen-center;
+
+  img {
+    margin: 1em 0;
+  }
 }

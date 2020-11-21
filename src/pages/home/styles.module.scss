@@ -1,5 +1,9 @@
 @use "~@/utils/scss/placeholders/layout" as *;
 
-.home {
+.root {
   @extend %full-screen-center;
+
+  span {
+    margin: 1em 0;
+  }
 }

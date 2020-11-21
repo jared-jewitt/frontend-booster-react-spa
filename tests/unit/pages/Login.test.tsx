@@ -1,12 +1,10 @@
 import React from "react";
-
+import { Login } from "@/pages";
 import { render } from "../../utils";
 
-import { LoginPage } from "@/pages";
-
-describe("LoginPage", () => {
+describe("Login page", () => {
   it("matches snapshot", () => {
-    const { asFragment } = render(<LoginPage />, {});
+    const { asFragment } = render(<Login />, {});
     expect(asFragment()).toMatchSnapshot();
   });
 });

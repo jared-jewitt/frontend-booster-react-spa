@@ -1,18 +1,17 @@
 import React from "react";
-
 import { AuthContext } from "@/store";
+import { Loader } from "@/components";
 import { Logo } from "@/assets";
-
 import styles from "./styles.module.scss";
 
-export default (): React.ReactElement => {
-  const { updateAuthState } = React.useContext(AuthContext);
+export default function Login(): React.ReactElement {
+  const { login, state } = React.useContext(AuthContext);
 
   return (
-    <div className={styles.login}>
+    <div className={styles.root}>
       <img src={Logo} alt="Logo" height={200} width={200} />
-      <br />
-      <button onClick={() => updateAuthState({ user: { name: "Foo Bar" } })}>Simulate login</button>
+
+      {state.isLoading ? <Loader /> : <button onClick={() => login()}>Simulate login</button>}
     </div>
   );
-};
+}

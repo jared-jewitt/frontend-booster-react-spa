@@ -1,5 +1,6 @@
-@use "~@/utils/scss/placeholders/layout" as *;
+@use "sass:map";
+@use "~@/utils/scss/variables/theme";
 
-.loader {
-  @extend %full-screen-center;
+.root {
+  color: map.get(theme.$palette, "primary");
 }

@@ -1,12 +1,10 @@
 import React from "react";
-
+import { NotFound } from "@/pages";
 import { render } from "../../utils";
 
-import { NotFoundPage } from "@/pages";
-
-describe("NotFoundPage", () => {
+describe("Not found page", () => {
   it("matches snapshot", () => {
-    const { asFragment } = render(<NotFoundPage />, {});
+    const { asFragment } = render(<NotFound />, {});
     expect(asFragment()).toMatchSnapshot();
   });
 });
