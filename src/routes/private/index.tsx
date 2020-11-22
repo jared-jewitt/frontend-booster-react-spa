@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { Loader } from "@/components";
 
 const Home = React.lazy(() => import("@/pages/home"));
-const NotFound = React.lazy(() => import("@/pages/not-found"));
+const NotFound = React.lazy(() => import("@/pages/404"));
 
 export default function PrivateRoutes(): React.ReactElement {
   return (

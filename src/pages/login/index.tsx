@@ -10,7 +10,6 @@ export default function Login(): React.ReactElement {
   return (
     <div className={styles.root}>
       <img src={Logo} alt="Logo" height={200} width={200} />
-
       {state.isLoading ? <Loader /> : <button onClick={() => login()}>Simulate login</button>}
     </div>
   );

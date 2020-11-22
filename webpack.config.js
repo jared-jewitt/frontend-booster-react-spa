@@ -51,10 +51,10 @@ module.exports = () => {
       historyApiFallback: true,
       writeToDisk: true,
       overlay: true,
-      stats: "errors-warnings",
+      stats: "errors-only",
     },
     resolve: {
-      extensions: [".tsx", ".ts", ".jsx", ".js", ".scss", ".sass", ".css"],
+      extensions: [".tsx", ".ts", ".jsx", ".js", ".sass", ".scss", ".css"],
       alias: {
         "@": PATHS.src,
       },

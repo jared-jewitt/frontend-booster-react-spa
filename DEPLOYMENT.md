@@ -1,8 +1,8 @@
 # Deployment
 
-This repository uses an immutable CI/CD flow via GitHub Actions. Deploying the app is as simple as making a pull request
-and merging it. That being said, there are still some pre-requisites to fulfill before running your first deployment.
-Please follow the steps below in order.
+This repository is set up to deploy to [Google Cloud Run](https://cloud.google.com/run). It uses an immutable CI/CD flow
+via GitHub Actions. Deploying the app is as simple as making a pull request and merging it. That being said, there
+are still some pre-requisites to fulfill before running your first deployment. Please follow the steps below in order.
 
 #### Requirements:
 

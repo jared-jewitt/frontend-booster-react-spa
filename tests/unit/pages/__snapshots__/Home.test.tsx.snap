@@ -5,9 +5,9 @@ exports[`Home page matches snapshot 1`] = `
   <div
     class="root"
   >
-    <p>
+    <span>
       Welcome to the React SPA boilerplate!
-    </p>
+    </span>
     <button>
       Simulate logout
     </button>

@@ -1,6 +1,6 @@
 // Styles
-declare module "*.scss";
 declare module "*.sass";
+declare module "*.scss";
 declare module "*.css";
 
 // Assets
