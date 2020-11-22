@@ -1,6 +1,5 @@
 node_modules
 build
-bundle-stats.json
 
 # General
 .DS_Store

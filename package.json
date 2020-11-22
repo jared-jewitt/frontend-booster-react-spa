@@ -7,8 +7,7 @@
     "prod": "cross-env NODE_ENV=production webpack && serve -n -s build -p ${PORT:-4000}",
     "dev": "cross-env NODE_ENV=development webpack serve",
     "test": "cross-env NODE_ENV=test jest",
-    "lint": "prettier --write **/*.{tsx,ts,jsx,js} && eslint --fix **/*.{tsx,ts,jsx,js} && stylelint --fix **/*.{sass,scss,css}",
-    "analyze-bundle-size": "webpack --profile --json > bundle-stats.json && webpack-bundle-analyzer --port=4200 bundle-stats.json"
+    "lint": "prettier --write **/*.{tsx,ts,jsx,js} && eslint --fix **/*.{tsx,ts,jsx,js} && stylelint --fix **/*.{sass,scss,css}"
   },
   "dependencies": {
     "react": "^17.0.1",
@@ -63,7 +62,6 @@
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.2",
     "webpack": "^5.6.0",
-    "webpack-bundle-analyzer": "^4.1.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
   }

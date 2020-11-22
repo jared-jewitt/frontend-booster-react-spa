@@ -56,13 +56,12 @@ npm run dev
 
 **_NPM:_**
 
-| Command                     | Description                                                   |
-| --------------------------- | ------------------------------------------------------------- |
-| npm run prod                | Builds and runs the client on $PORT &#124;&#124; 4000         |
-| npm run dev                 | Runs the client with hot reloading on $PORT &#124;&#124; 3000 |
-| npm run test                | Runs the suite of Jest tests                                  |
-| npm run lint                | Runs Prettier, ESLint, and StyleLint formatters               |
-| npm run analyze-bundle-size | Generates and serves bundle size stats on port 4200           |
+| Command      | Description                                                   |
+| ------------ | ------------------------------------------------------------- |
+| npm run prod | Builds and runs the client on $PORT &#124;&#124; 4000         |
+| npm run dev  | Runs the client with hot reloading on $PORT &#124;&#124; 3000 |
+| npm run test | Runs the suite of Jest tests                                  |
+| npm run lint | Runs Prettier, ESLint, and StyleLint formatters               |
 
 ## Deployment
 
