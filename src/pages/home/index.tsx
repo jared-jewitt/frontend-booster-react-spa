@@ -8,7 +8,7 @@ export default function Home(): React.ReactElement {
 
   return (
     <div className={styles.root}>
-      <span>Welcome to the React SPA boilerplate!</span>
+      <p>Welcome to the React SPA boilerplate!</p>
       {state.isLoading ? <Loader /> : <button onClick={() => logout()}>Simulate logout</button>}
     </div>
   );

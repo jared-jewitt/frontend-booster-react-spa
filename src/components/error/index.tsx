@@ -22,6 +22,6 @@ export default class ErrorBoundary extends React.Component<IProps, IState> {
     const { hasError } = this.state;
     const { children } = this.props;
 
-    return !hasError ? children : <h2 className={styles.root}>Oops! Something went wrong.</h2>;
+    return !hasError ? children : <p className={styles.root}>Oops! Something went wrong.</p>;
   }
 }
