@@ -1,6 +1,5 @@
 import React from "react";
 import { AuthContext } from "@/store";
-import { Loader } from "@/components";
 import styles from "./styles.module.scss";
 
 export default function Home(): React.ReactElement {
@@ -9,7 +8,9 @@ export default function Home(): React.ReactElement {
   return (
     <div className={styles.root}>
       <p>Welcome to the React SPA boilerplate!</p>
-      {state.isLoading ? <Loader /> : <button onClick={() => logout()}>Simulate logout</button>}
+      <button disabled={state.isLoading} onClick={() => logout()}>
+        Simulate logout
+      </button>
     </div>
   );
 }

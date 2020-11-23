@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Cookie } from "@/utils";
 
 export interface IState {
@@ -23,6 +24,7 @@ export const AuthConsumer = ({ children }: { children: (value: IContext) => Reac
 };
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }): React.ReactElement => {
+  const history = useHistory();
   const [state, setState] = React.useState<IState>({
     isAuthenticated: JSON.parse(Cookie.get("isAuthenticated") || null) ?? false,
     isLoading: false,
@@ -32,8 +34,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }): React
   const login = async (): Promise<void> => {
     try {
       setState((prevState) => ({ ...prevState, isLoading: true }));
-      await new Promise((res) => setTimeout(res, 1000));
-      Cookie.set("isAuthenticated", true, { days: 7 });
+      await new Promise((res) => setTimeout(res, 250));
+      history.replace("/");
+      Cookie.set("isAuthenticated", true, { path: "/", days: 7 });
       setState({ isAuthenticated: true, isLoading: false });
     } catch (e) {
       setState((prevState) => ({ ...prevState, isLoading: false }));
@@ -44,8 +47,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }): React
   const logout = async (): Promise<void> => {
     try {
       setState((prevState) => ({ ...prevState, isLoading: true }));
-      await new Promise((res) => setTimeout(res, 1000));
-      Cookie.delete("isAuthenticated");
+      await new Promise((res) => setTimeout(res, 250));
+      history.replace("/");
+      Cookie.delete("isAuthenticated", { path: "/" });
       setState({ isAuthenticated: false, isLoading: false });
     } catch (e) {
       setState((prevState) => ({ ...prevState, isLoading: false }));

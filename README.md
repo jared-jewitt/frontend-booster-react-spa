@@ -12,21 +12,24 @@ However, that being said, it can still be used completely on its own - CI/CD and
 
 #### Features:
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [Babel](https://babeljs.io/)
-- [Webpack](https://webpack.js.org/)
-- [Browserslist](https://browserl.ist/)
-- [Prettier](https://prettier.io/)
-- [ESLint](https://eslint.org/)
-- [Stylelint](https://stylelint.io/)
-- [Husky](https://github.com/typicode/husky)
-- [Jest](https://jestjs.io/)
+- ⚛️ React 17
+- ⛑️ Type safety using TypeScript
+- 🔐 Private and public routes
+- 🦄 Babel + Webpack for code transpilation and bundling
+- 💄 Write SCSS & future CSS with PostCSS + preset-env
+- 🎯 Browserslist for specific browser support
+- 🖊 Add SVGs, images, and custom fonts
+- 🌎 Path aliasing for streamlined imports
+- 🌈 Prettier for consistent code style
+- 👀 Lint your code with ESLint & StyleLint
+- 🐺 Husky + lint-staged for code quality assurance
+- 🧪 Jest + React Testing Library for tests
 
 #### Developers:
 
 - [Jared Jewitt](https://jared-jewitt.github.io/)
 
-## Getting Started
+## 🏃 Getting Started
 
 Run the frontend via either option below, then visit the client at `http://localhost:3000`
 
@@ -43,7 +46,7 @@ npm install
 npm run dev
 ```
 
-## Commands
+## ⌨️ Commands
 
 **_Docker:_**
 
@@ -63,10 +66,10 @@ npm run dev
 | npm run test | Runs the suite of Jest tests                                  |
 | npm run lint | Runs Prettier, ESLint, and StyleLint formatters               |
 
-## Deployment
+## 🚀 Deployment
 
 [Instructions here](DEPLOYMENT.md).
 
-## License
+## ⚖️ License
 
 Code released under the [MIT License](LICENSE).

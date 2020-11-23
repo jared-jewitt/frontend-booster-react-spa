@@ -1,6 +1,5 @@
 import React from "react";
 import { AuthContext } from "@/store";
-import { Loader } from "@/components";
 import { Logo } from "@/assets";
 import styles from "./styles.module.scss";
 
@@ -10,7 +9,10 @@ export default function Login(): React.ReactElement {
   return (
     <div className={styles.root}>
       <img src={Logo} alt="Logo" height={200} width={200} />
-      {state.isLoading ? <Loader /> : <button onClick={() => login()}>Simulate login</button>}
+      <br />
+      <button disabled={state.isLoading} onClick={() => login()}>
+        Simulate login
+      </button>
     </div>
   );
 }

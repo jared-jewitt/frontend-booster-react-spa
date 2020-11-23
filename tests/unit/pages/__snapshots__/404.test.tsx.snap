@@ -5,9 +5,7 @@ exports[`Not found page matches snapshot 1`] = `
   <div
     class="root"
   >
-    <p>
-      404 - Not found
-    </p>
+    404 - Not found
   </div>
 </DocumentFragment>
 `;

@@ -11,6 +11,7 @@ exports[`Login page matches snapshot 1`] = `
       src="[object Object]"
       width="200"
     />
+    <br />
     <button>
       Simulate login
     </button>
