@@ -2,10 +2,13 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { RenderResult, render } from "@testing-library/react";
 import { AuthProvider } from "@/store";
+import { Cookie } from "@/utils";
 
 const AllTheProviders = ({ children }) => {
+  const isAuthenticated = JSON.parse(Cookie.get("isAuthenticated") || null) ?? false;
+
   return (
-    <AuthProvider>
+    <AuthProvider isAuthenticated={isAuthenticated}>
       <BrowserRouter>{children}</BrowserRouter>
     </AuthProvider>
   );

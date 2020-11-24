@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 
 export interface IProps {
+  className?: string;
   children: React.ReactNode;
 }
 
@@ -19,9 +20,9 @@ export default class ErrorBoundary extends React.Component<IProps, IState> {
   }
 
   render(): React.ReactNode {
+    const { className, children } = this.props;
     const { hasError } = this.state;
-    const { children } = this.props;
 
-    return !hasError ? children : <div className={styles.root}>Oops! Something went wrong.</div>;
+    return !hasError ? children : <div className={`${styles.root} ${className}`}>Oops! Something went wrong.</div>;
   }
 }
