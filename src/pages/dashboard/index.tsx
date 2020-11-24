@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthContext } from "@/store";
-import styles from "./styles.module.scss";
+import styles from "@/pages/dashboard/styles.module.scss";
 
 export default function Dashboard(): React.ReactElement {
   const { logout, state } = React.useContext(AuthContext);

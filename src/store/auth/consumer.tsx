@@ -1,5 +1,5 @@
 import React from "react";
-import Context, { IContext } from "./context";
+import Context, { IContext } from "@/store/auth/context";
 
 export interface IProps {
   children: (value: IContext) => React.ReactNode;

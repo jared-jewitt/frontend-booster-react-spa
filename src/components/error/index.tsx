@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles.module.scss";
+import styles from "@/components/error/styles.module.scss";
 
 export interface IProps {
   className?: string;

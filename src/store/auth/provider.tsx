@@ -1,6 +1,6 @@
 import React from "react";
 import { Cookie } from "@/utils";
-import Context from "./context";
+import Context from "@/store/auth/context";
 
 export interface IProps {
   children: React.ReactNode;

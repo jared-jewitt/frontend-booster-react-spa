@@ -5,10 +5,8 @@ import { AuthProvider } from "@/store";
 import { Cookie } from "@/utils";
 
 const AllTheProviders = ({ children }) => {
-  const isAuthenticated = JSON.parse(Cookie.get("isAuthenticated") || null) ?? false;
-
   return (
-    <AuthProvider isAuthenticated={isAuthenticated}>
+    <AuthProvider isAuthenticated={JSON.parse(Cookie.get("isAuthenticated") || null) ?? false}>
       <BrowserRouter>{children}</BrowserRouter>
     </AuthProvider>
   );

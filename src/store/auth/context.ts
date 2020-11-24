@@ -1,5 +1,5 @@
 import React from "react";
-import { IState } from "./provider";
+import { IState } from "@/store/auth/provider";
 
 export interface IContext {
   login: () => void;
