@@ -44,7 +44,7 @@ are still some pre-requisites to fulfill before running your first deployment. P
    this to anyone or check this into source control.
 
 2. [Create a new Organization](https://app.terraform.io/app/organizations/new). Or use an existing organization if
- you have a separate backend already set up.
+   you have a separate backend already set up.
 
 3. Create 3 workspaces for the organization - one for each environment (development, staging, production).
 
