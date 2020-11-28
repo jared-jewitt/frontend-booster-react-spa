@@ -13,7 +13,7 @@ However, that being said, it can still be used completely on its own - CI/CD and
 #### Features:
 
 - ⚛️ React 17
-- ⛑️ Type safety using TypeScript
+- ⛑️ Type safety via TypeScript
 - 🔐 Private and public routes
 - 🦄 Babel + Webpack for code transpilation and bundling
 - 💄 Write SCSS & future CSS with PostCSS + preset-env
