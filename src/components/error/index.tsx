@@ -20,7 +20,7 @@ export default class ErrorBoundary extends React.Component<IProps, IState> {
   }
 
   render(): React.ReactNode {
-    const { className, children } = this.props;
+    const { className = "", children } = this.props;
     const { hasError } = this.state;
 
     return !hasError ? children : <div className={`${styles.root} ${className}`}>Oops! Something went wrong.</div>;

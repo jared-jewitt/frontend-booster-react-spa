@@ -7,7 +7,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = () => {
   const TITLE = "React SPA boilerplate";
-  const TARGET = "web";
 
   const MODE = process.env.NODE_ENV || "production";
   const PUBLIC_PATH = process.env.PUBLIC_PATH || "/";
@@ -32,7 +31,6 @@ module.exports = () => {
   };
 
   return {
-    target: TARGET,
     mode: MODE,
     entry: PATHS.entry,
     output: {
@@ -43,15 +41,9 @@ module.exports = () => {
       assetModuleFilename: BUILD_FILE_NAMES.assetModuleFileName,
     },
     devServer: {
-      contentBase: PATHS.build,
       port: PORT,
       host: HOST,
-      hot: true,
-      watchContentBase: true,
       historyApiFallback: true,
-      writeToDisk: true,
-      overlay: true,
-      stats: "errors-only",
     },
     resolve: {
       extensions: [".tsx", ".ts", ".jsx", ".js", ".sass", ".scss", ".css"],
@@ -98,7 +90,7 @@ module.exports = () => {
           {
             from: PATHS.public,
             to: PATHS.build,
-            globOptions: { ignore: ["*.html"] },
+            globOptions: { ignore: ["**/*.html"] },
           },
         ],
       }),
