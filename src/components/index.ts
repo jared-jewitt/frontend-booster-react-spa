@@ -1,2 +1,2 @@
-export { default as ErrorBoundary } from "@/components/error";
-export { default as Loader } from "@/components/loader";
+export { default as ErrorBoundary } from "./error";
+export { default as Loader } from "./loader";

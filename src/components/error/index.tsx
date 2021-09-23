@@ -1,21 +1,21 @@
 import React from "react";
-import styles from "@/components/error/styles.module.scss";
+import styles from "./styles.module.scss";
 
-export interface IProps {
+export interface Props {
   className?: string;
   children: React.ReactNode;
 }
 
-export interface IState {
+export interface State {
   hasError: boolean;
 }
 
-export default class ErrorBoundary extends React.Component<IProps, IState> {
+export default class ErrorBoundary extends React.Component<Props, State> {
   state = {
     hasError: false,
   };
 
-  static getDerivedStateFromError(): IState {
+  static getDerivedStateFromError(): State {
     return { hasError: true };
   }
 
