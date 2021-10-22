@@ -26,7 +26,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("login", (...args) => {
+Cypress.Commands.add("login", () => {
   const loginButtonSelector = "#root > div > button";
 
   cy.visit(`http://localhost:${Cypress.env("port")}/login`);
@@ -34,7 +34,7 @@ Cypress.Commands.add("login", (...args) => {
   cy.location("pathname").should("equal", "/dashboard");
 });
 
-Cypress.Commands.add("logout", (...args) => {
+Cypress.Commands.add("logout", () => {
   const logoutButtonSelector = "#root > div > button";
 
   cy.visit(`http://localhost:${Cypress.env("port")}/dashboard`);

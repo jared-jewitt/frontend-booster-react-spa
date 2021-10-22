@@ -1,4 +1,6 @@
 const path = require("path");
+const webpack = require("webpack");
+const dotenv = require("dotenv-flow");
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -8,10 +10,11 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = () => {
   const TITLE = "React SPA boilerplate";
 
-  const MODE = process.env.NODE_ENV || "production";
+  const NODE_ENV = process.env.NODE_ENV || "production";
   const PUBLIC_PATH = process.env.PUBLIC_PATH || "/";
-  const HOST = process.env.HOST || "localhost";
-  const PORT = process.env.PORT || 3000;
+  const HOST = process.env.HOST || "0.0.0.0";
+  const PORT = process.env.PORT || 4000;
+  const MODE = NODE_ENV === "development" || NODE_ENV === "test" ? "development" : "production";
 
   const BUILD_FILE_NAMES = {
     htmlFileName: "index.html",
@@ -55,7 +58,7 @@ module.exports = () => {
       rules: [
         {
           test: /\.(ts|js)x?$/,
-          exclude: /node_modules/,
+          exclude: [/node_modules/],
           use: ["babel-loader"],
         },
         {
@@ -93,6 +96,12 @@ module.exports = () => {
             globOptions: { ignore: ["**/*.html"] },
           },
         ],
+      }),
+      new webpack.DefinePlugin({
+        "window._env_": JSON.stringify({
+          NODE_ENV,
+          ...dotenv.config().parsed,
+        }),
       }),
     ],
   };

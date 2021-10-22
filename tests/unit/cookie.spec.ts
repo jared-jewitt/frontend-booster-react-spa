@@ -1,13 +1,11 @@
 import { expect } from "chai";
-
-// @ts-ignore
 import { cookie } from "@/utils";
 
 Object.defineProperty(window.document, "cookie", {
   writable: true,
 });
 
-describe("cookie function", () => {
+describe("Unit - cookie function", () => {
   it(`gets a cookie "foo" with the value "bar"`, () => {
     Object.defineProperty(window.document, "cookie", {
       value: "foo=bar;",

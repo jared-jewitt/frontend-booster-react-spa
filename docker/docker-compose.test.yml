@@ -1,11 +1,15 @@
-version: "3.8"
+version: "3.9"
 
-# Base Services Definition
+# Services definition
 services:
   client:
     container_name: ${COMPOSE_PROJECT_NAME}_client
+    image: ${COMPOSE_PROJECT_NAME}_client:test
     build:
       context: ..
+      dockerfile: docker/Dockerfile-client.test
+    ports:
+      - 4001:4001
     volumes:
       - "../:/usr/src/app"
       - "/usr/src/app/node_modules"

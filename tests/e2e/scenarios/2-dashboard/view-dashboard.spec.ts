@@ -1,6 +1,6 @@
 /// <reference types="../../support" />
 
-describe("dashboard - view dashboard", () => {
+describe("E2E - dashboard flow", () => {
   before(() => {
     cy.login();
   });

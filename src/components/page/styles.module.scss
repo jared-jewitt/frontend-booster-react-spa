@@ -1,0 +1,10 @@
+@use "sass:map";
+@use "~@/scss/variables/theme";
+
+.root {
+  .envList {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+  }
+}

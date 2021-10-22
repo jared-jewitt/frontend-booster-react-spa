@@ -1,6 +1,6 @@
 /// <reference types="../../support" />
 
-describe("authentication - logout", () => {
+describe("E2E - logout flow", () => {
   before(() => {
     cy.login();
   });

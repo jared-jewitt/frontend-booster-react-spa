@@ -1,6 +1,6 @@
 /// <reference types="../../support" />
 
-describe("authentication - login", () => {
+describe("E2E - login flow", () => {
   it("logs the user in", () => {
     cy.login();
   });
