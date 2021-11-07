@@ -1,6 +1,16 @@
 import React from "react";
-import styles from "./styles.module.scss";
+import nprogress from "nprogress";
+import "nprogress/nprogress.css";
+
+nprogress.configure({
+  showSpinner: false,
+});
 
 export default function Loader(): React.ReactElement {
-  return <div className={styles.root}>Loading...</div>;
+  React.useEffect((): (() => void) => {
+    nprogress.start();
+    return () => nprogress.done();
+  });
+
+  return null;
 }

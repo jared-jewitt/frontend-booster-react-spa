@@ -4,15 +4,18 @@ import Context from "./context";
 
 export interface Props {
   children: React.ReactNode;
-  isAuthenticated: boolean;
 }
 
-export interface State extends Pick<Props, "isAuthenticated"> {
+export interface State {
+  isAuthenticated: boolean;
   isLoading: boolean;
 }
 
-export default function AuthProvider({ children, isAuthenticated }: Props): React.ReactElement {
-  const [state, setState] = React.useState<State>({ isAuthenticated, isLoading: false });
+export default function AuthProvider({ children }: Props): React.ReactElement {
+  const [state, setState] = React.useState<State>({
+    isAuthenticated: JSON.parse(cookie.get("isAuthenticated") || null) ?? false,
+    isLoading: false,
+  });
 
   const login = async (): Promise<void> => {
     try {

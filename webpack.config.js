@@ -10,11 +10,10 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = () => {
   const TITLE = "React SPA boilerplate";
 
-  const NODE_ENV = process.env.NODE_ENV || "production";
+  const MODE = process.env.NODE_ENV || "production";
   const PUBLIC_PATH = process.env.PUBLIC_PATH || "/";
   const HOST = process.env.HOST || "0.0.0.0";
   const PORT = process.env.PORT || 4000;
-  const MODE = NODE_ENV === "development" || NODE_ENV === "test" ? "development" : "production";
 
   const BUILD_FILE_NAMES = {
     htmlFileName: "index.html",
@@ -99,7 +98,7 @@ module.exports = () => {
       }),
       new webpack.DefinePlugin({
         "window._env_": JSON.stringify({
-          NODE_ENV,
+          NODE_ENV: MODE,
           ...dotenv.config().parsed,
         }),
       }),

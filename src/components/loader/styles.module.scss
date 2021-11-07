@@ -1,6 +1,0 @@
-@use "sass:map";
-@use "~@/scss/variables/theme";
-
-.root {
-  color: map.get(theme.$palette, "primary");
-}
